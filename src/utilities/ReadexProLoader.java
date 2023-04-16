@@ -37,7 +37,7 @@ public class ReadexProLoader {
         try {
             semiBold = Font.createFont(Font.TRUETYPE_FONT, ReadexProLoader.class.getResourceAsStream("../fonts/ReadexPro-SemiBold.ttf")).deriveFont(size);
         
-            registerFont(regular);
+            registerFont(semiBold);
         } catch (IOException | FontFormatException e) {
             System.out.println(e);
         }
