@@ -7,6 +7,7 @@ package screens;
 import java.awt.Font;
 import java.awt.Toolkit;
 import utilities.ReadexProLoader;
+import classes.User;
 
 /**
  *
@@ -16,6 +17,8 @@ public class UserInformation extends javax.swing.JFrame {
     Home home;
     Font readexPro;
     Font readexProSemiBold;
+    
+    public User user;
 
     /**
      * Creates new form UserInformationEntry
@@ -235,6 +238,14 @@ public class UserInformation extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNameFocusGained
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        String name = txtName.getText();
+        String age = txtAge.getText();
+        String address = txtAddress.getText();
+        String contact = txtConNo.getText();
+        String email = txtEmail.getText();
+        
+        this.user = new User(name, age, address, contact, email);
+        
         new DateSelection(this).setVisible(true);
         
         this.setVisible(false);
