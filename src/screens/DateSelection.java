@@ -37,8 +37,6 @@ public class DateSelection extends javax.swing.JFrame {
         setIconImage();
         setFonts();
         initComponents();
-        
-        GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(readexProSemiBold);
     }
 
     /**
@@ -236,6 +234,9 @@ public class DateSelection extends javax.swing.JFrame {
             
             lblDateDiff.setText(Long.toString(dateDiff) + (dateDiff != 1 ? " days" : " day"));
         }
+        
+        System.out.println("Name: " + this.userInformation.user.name);
+        System.out.println("Email: " + this.userInformation.user.email);
     }
     
     private void setIconImage() {
