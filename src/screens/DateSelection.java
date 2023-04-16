@@ -16,9 +16,13 @@ import utilities.ReadexProLoader;
  */
 public class DateSelection extends javax.swing.JFrame {
     UserInformation userInformation;
+    ReservationConfirmation reservationConfirmation;
     Font readexPro;
     Font readexProSemiBold;
     long dateDiff;
+    
+    public Date checkIn;
+    public Date checkOut;
     
     /**
      * Creates new form DateSelection
@@ -194,7 +198,9 @@ public class DateSelection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        new PaymentProcessing(this).setVisible(true);
+        reservationConfirmation.setVisible(true);
+        reservationConfirmation.duration = dateDiff;
+        reservationConfirmation.populateData();
         
         this.setVisible(false);
     }//GEN-LAST:event_btnNextActionPerformed
@@ -233,10 +239,10 @@ public class DateSelection extends javax.swing.JFrame {
             dateDiff = diffInMilliseconds / (24 * 60 * 60 * 1000);
             
             lblDateDiff.setText(Long.toString(dateDiff) + (dateDiff != 1 ? " days" : " day"));
+            
+            this.checkIn = checkInDate.getDate();
+            this.checkOut = checkOutDate.getDate();
         }
-        
-        System.out.println("Name: " + this.userInformation.user.name);
-        System.out.println("Email: " + this.userInformation.user.email);
     }
     
     private void setIconImage() {

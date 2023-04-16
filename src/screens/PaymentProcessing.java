@@ -14,7 +14,7 @@ import utilities.ReadexProLoader;
  * @author jejer
  */
 public class PaymentProcessing extends javax.swing.JFrame {
-    DateSelection dateSelection;
+    ReservationConfirmation reservationConfirmation;
     Font readexPro;
     Font readexProSemiBold;
     Font readexProTotal;
@@ -30,8 +30,8 @@ public class PaymentProcessing extends javax.swing.JFrame {
         btnCard.setSelected(true);
     }
     
-    public PaymentProcessing(DateSelection dateSelection) {
-        this.dateSelection = dateSelection;
+    public PaymentProcessing(ReservationConfirmation reservationConfirmation) {
+        this.reservationConfirmation = reservationConfirmation;
         
         setIconImage();
         setFonts();
@@ -927,7 +927,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPayNowActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        this.dateSelection.setVisible(true);
+        this.reservationConfirmation.setVisible(true);
         
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed

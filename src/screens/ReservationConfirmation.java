@@ -1,25 +1,42 @@
-package screens;
-
-
-import java.awt.Color;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package screens;
+
+import java.awt.Font;
+import java.awt.Toolkit;
+import utilities.ReadexProLoader;
+import classes.User;
+import java.text.SimpleDateFormat;
 
 /**
  *
- * @author Jon Gleur Tan
+ * @author William
  */
 public class ReservationConfirmation extends javax.swing.JFrame {
+    User user;
+    DateSelection dateSelection;
+    long duration;
+    Font readexPro;
+    Font readexProSemiBold;
 
     /**
      * Creates new form Confirmation
      */
     public ReservationConfirmation() {
+        setIconImage();
+        setFonts();
         initComponents();
-        getContentPane().setBackground(Color.white);
+    }
+    
+    public ReservationConfirmation(User user, DateSelection dateSelection) {
+        this.user = user;
+        this.dateSelection = dateSelection;
+        
+        setIconImage();
+        setFonts();
+        initComponents();
     }
 
     /**
@@ -31,241 +48,266 @@ public class ReservationConfirmation extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel10 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        pnlMain = new javax.swing.JPanel();
+        pnlHeadings = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        pnlDetails = new javax.swing.JPanel();
+        pnlName = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        pnlConNo = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        lblConNo = new javax.swing.JLabel();
+        pnlEmail = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        pnlRoom = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        lblName3 = new javax.swing.JLabel();
+        pnlDate = new javax.swing.JPanel();
+        pnlCheckIn = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        lblCheckIn = new javax.swing.JLabel();
+        pnlCheckOut = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        lblCheckOut = new javax.swing.JLabel();
+        pnlFooter = new javax.swing.JPanel();
+        pnlPrice = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
+        pnlBtns = new javax.swing.JPanel();
+        btnBack = new javax.swing.JButton();
+        btnPay = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(204, 255, 204));
+        setTitle("Flora Macatan");
 
-        jLabel10.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jLabel10.setText("April 5, 2023");
+        pnlMain.setBackground(new java.awt.Color(255, 255, 255));
+        pnlMain.setBorder(javax.swing.BorderFactory.createEmptyBorder(64, 192, 64, 192));
+        pnlMain.setLayout(new java.awt.BorderLayout());
 
-        jLabel4.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(125, 124, 131));
-        jLabel4.setText("Name");
+        pnlHeadings.setBackground(new java.awt.Color(255, 255, 255));
+        pnlHeadings.setLayout(new java.awt.GridLayout(3, 0));
 
-        jLabel2.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jLabel2.setText("Lore Una");
+        jLabel1.setFont(readexProSemiBold);
+        jLabel1.setForeground(new java.awt.Color(58, 50, 44));
+        jLabel1.setText("<html><head><style>body { font-family: \"Readex Pro\"; font-weight: 700; }</style></head>Booking <font color=\"#5B3700\">confirmation</font</html>");
+        pnlHeadings.add(jLabel1);
 
-        jLabel3.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(125, 124, 131));
-        jLabel3.setText("Contact number");
+        jLabel2.setFont(readexPro);
+        jLabel2.setForeground(new java.awt.Color(171, 171, 171));
+        jLabel2.setText("Review your booking details.");
+        pnlHeadings.add(jLabel2);
 
-        jLabel5.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jLabel5.setText("09564134959");
+        jSeparator1.setBackground(new java.awt.Color(246, 246, 246));
+        jSeparator1.setForeground(new java.awt.Color(246, 246, 246));
+        pnlHeadings.add(jSeparator1);
 
-        jLabel6.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(125, 124, 131));
-        jLabel6.setText("Email address");
+        pnlMain.add(pnlHeadings, java.awt.BorderLayout.PAGE_START);
 
-        jLabel7.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jLabel7.setText("LoreUna@gmail.com");
+        pnlDetails.setBackground(new java.awt.Color(255, 255, 255));
+        pnlDetails.setLayout(new java.awt.GridLayout(5, 0));
 
-        jLabel8.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(125, 124, 131));
-        jLabel8.setText("Room");
+        pnlName.setBackground(new java.awt.Color(255, 255, 255));
+        pnlName.setLayout(new java.awt.GridLayout(1, 0));
 
-        jLabel9.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jLabel9.setText("Suite Room");
+        jLabel3.setFont(readexPro);
+        jLabel3.setForeground(new java.awt.Color(171, 171, 171));
+        jLabel3.setText("Name:");
+        pnlName.add(jLabel3);
 
-        jLabel12.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(125, 124, 131));
-        jLabel12.setText("Check-in date");
+        lblName.setFont(readexPro);
+        lblName.setForeground(new java.awt.Color(58, 50, 44));
+        lblName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblName.setText("Lore Una");
+        pnlName.add(lblName);
 
-        jLabel1.setBackground(new java.awt.Color(88, 96, 106));
-        jLabel1.setFont(new java.awt.Font("Readex Pro SemiBold", 0, 18)); // NOI18N
-        jLabel1.setText("Booking Confirmation");
+        pnlDetails.add(pnlName);
 
-        jLabel14.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(125, 124, 131));
-        jLabel14.setText("Review your booking details.");
-        jLabel14.setPreferredSize(new java.awt.Dimension(300, 18));
-        jLabel14.setRequestFocusEnabled(false);
+        pnlConNo.setBackground(new java.awt.Color(255, 255, 255));
+        pnlConNo.setLayout(new java.awt.GridLayout(1, 0));
 
-        jLabel15.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jLabel15.setText("April 8, 2023");
+        jLabel4.setFont(readexPro);
+        jLabel4.setForeground(new java.awt.Color(171, 171, 171));
+        jLabel4.setText("Contact number");
+        pnlConNo.add(jLabel4);
 
-        jLabel16.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(125, 124, 131));
-        jLabel16.setText("Check-out date");
+        lblConNo.setFont(readexPro);
+        lblConNo.setForeground(new java.awt.Color(58, 50, 44));
+        lblConNo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblConNo.setText("09564134959");
+        pnlConNo.add(lblConNo);
 
-        jPanel1.setBackground(new java.awt.Color(241, 242, 246));
+        pnlDetails.add(pnlConNo);
 
-        jLabel11.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(125, 124, 131));
-        jLabel11.setText("Total amount");
+        pnlEmail.setBackground(new java.awt.Color(255, 255, 255));
+        pnlEmail.setLayout(new java.awt.GridLayout(1, 0));
 
-        jLabel13.setFont(new java.awt.Font("Readex Pro SemiBold", 0, 14)); // NOI18N
-        jLabel13.setText("₱7999");
+        jLabel5.setFont(readexPro);
+        jLabel5.setForeground(new java.awt.Color(171, 171, 171));
+        jLabel5.setText("Email:");
+        pnlEmail.add(jLabel5);
 
-        jButton3.setBackground(new java.awt.Color(254, 255, 255));
-        jButton3.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jButton3.setText("Back");
-        jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton3.setBorderPainted(false);
-        jButton3.setFocusPainted(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        lblEmail.setFont(readexPro);
+        lblEmail.setForeground(new java.awt.Color(58, 50, 44));
+        lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEmail.setText("LoreUna@gmail.com");
+        pnlEmail.add(lblEmail);
+
+        pnlDetails.add(pnlEmail);
+
+        pnlRoom.setBackground(new java.awt.Color(255, 255, 255));
+        pnlRoom.setLayout(new java.awt.GridLayout(1, 0));
+
+        jLabel6.setFont(readexPro);
+        jLabel6.setForeground(new java.awt.Color(171, 171, 171));
+        jLabel6.setText("Room:");
+        pnlRoom.add(jLabel6);
+
+        lblName3.setFont(readexPro);
+        lblName3.setForeground(new java.awt.Color(58, 50, 44));
+        lblName3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblName3.setText("Suite Room");
+        pnlRoom.add(lblName3);
+
+        pnlDetails.add(pnlRoom);
+
+        pnlDate.setBackground(new java.awt.Color(255, 255, 255));
+        pnlDate.setLayout(new java.awt.GridLayout(1, 0));
+
+        pnlCheckIn.setBackground(new java.awt.Color(255, 255, 255));
+        pnlCheckIn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(readexPro);
+        jLabel8.setForeground(new java.awt.Color(171, 171, 171));
+        jLabel8.setText("Check in date:");
+        pnlCheckIn.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        lblCheckIn.setFont(readexPro);
+        lblCheckIn.setForeground(new java.awt.Color(58, 50, 44));
+        lblCheckIn.setText("April 5, 2023");
+        pnlCheckIn.add(lblCheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+
+        pnlDate.add(pnlCheckIn);
+
+        pnlCheckOut.setBackground(new java.awt.Color(255, 255, 255));
+        pnlCheckOut.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(readexPro);
+        jLabel9.setForeground(new java.awt.Color(171, 171, 171));
+        jLabel9.setText("Check out date:");
+        pnlCheckOut.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        lblCheckOut.setFont(readexPro);
+        lblCheckOut.setForeground(new java.awt.Color(58, 50, 44));
+        lblCheckOut.setText("April 15, 2023");
+        pnlCheckOut.add(lblCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+
+        pnlDate.add(pnlCheckOut);
+
+        pnlDetails.add(pnlDate);
+
+        pnlMain.add(pnlDetails, java.awt.BorderLayout.CENTER);
+
+        pnlFooter.setBackground(new java.awt.Color(255, 255, 255));
+        pnlFooter.setBorder(javax.swing.BorderFactory.createEmptyBorder(32, 0, 0, 0));
+        pnlFooter.setLayout(new java.awt.GridLayout(2, 0, 16, 0));
+
+        pnlPrice.setBackground(new java.awt.Color(255, 255, 255));
+        pnlPrice.setLayout(new java.awt.GridLayout(1, 0));
+
+        jLabel7.setFont(readexPro);
+        jLabel7.setForeground(new java.awt.Color(171, 171, 171));
+        jLabel7.setText("Total amount:");
+        pnlPrice.add(jLabel7);
+
+        lblTotal.setFont(readexPro);
+        lblTotal.setForeground(new java.awt.Color(58, 50, 44));
+        lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTotal.setText("P8000");
+        pnlPrice.add(lblTotal);
+
+        pnlFooter.add(pnlPrice);
+
+        pnlBtns.setBackground(new java.awt.Color(255, 255, 255));
+        pnlBtns.setLayout(new java.awt.GridLayout(1, 0, 16, 0));
+
+        btnBack.setBackground(new java.awt.Color(246, 246, 246));
+        btnBack.setFont(readexPro);
+        btnBack.setForeground(new java.awt.Color(58, 50, 44));
+        btnBack.setText("Back");
+        btnBack.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 32, 16, 32));
+        btnBack.setBorderPainted(false);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
+        pnlBtns.add(btnBack);
 
-        jButton1.setBackground(new java.awt.Color(95, 55, 38));
-        jButton1.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Proceed to Pay");
-        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton1.setBorderPainted(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton1.setDefaultCapable(false);
-        jButton1.setFocusPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnPay.setBackground(new java.awt.Color(91, 55, 0));
+        btnPay.setFont(readexPro);
+        btnPay.setForeground(new java.awt.Color(255, 255, 255));
+        btnPay.setText("Proceed to pay");
+        btnPay.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 32, 16, 32));
+        btnPay.setBorderPainted(false);
+        btnPay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnPayActionPerformed(evt);
             }
         });
+        pnlBtns.add(btnPay);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(70, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel13)))
-                .addGap(80, 80, 80))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel11))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
+        pnlFooter.add(pnlBtns);
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton3});
+        pnlMain.add(pnlFooter, java.awt.BorderLayout.SOUTH);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(53, 53, 53)
-                                .addComponent(jLabel9))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(jLabel5))
-                            .addComponent(jLabel7)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(67, 67, 67)
-                                .addComponent(jLabel2))))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel10))
-                        .addGap(68, 68, 68)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel16)))
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(68, 68, 68))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(62, 62, 62)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jLabel9.getAccessibleContext().setAccessibleName("");
+        getContentPane().add(pnlMain, java.awt.BorderLayout.CENTER);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    public void populateData() {
+        lblName.setText(this.user.name);
+        lblConNo.setText(this.user.contact);
+        lblEmail.setText(this.user.email);
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("MMM dd yyyy");
+            
+        String formattedCheckIn = formatter.format(this.dateSelection.checkIn);
+        String formattedCheckOut = formatter.format(this.dateSelection.checkOut);
+            
+        lblCheckIn.setText(formattedCheckIn);
+        lblCheckOut.setText(formattedCheckOut);
+        lblTotal.setText("PHP " + Long.toString(duration * 1500));
+    }
+    
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        this.dateSelection.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayActionPerformed
+        new PaymentProcessing(this).setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnPayActionPerformed
 
+    private void setIconImage() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../assets/Flora_Logo_20x20.png")));
+    }
+    
+    private void setFonts() {
+        ReadexProLoader loader = new ReadexProLoader();
+        
+        readexPro = loader.readexPro(12);
+        readexProSemiBold = loader.readexProSemiBold(32);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -291,12 +333,6 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ReservationConfirmation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
-        try {
-            javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        } catch (Exception e) {
-            System.out.println("UIManager Exception : " + e);
-        }
         //</editor-fold>
         //</editor-fold>
 
@@ -309,16 +345,9 @@ public class ReservationConfirmation extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnPay;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -327,7 +356,26 @@ public class ReservationConfirmation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblCheckIn;
+    private javax.swing.JLabel lblCheckOut;
+    private javax.swing.JLabel lblConNo;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblName3;
+    private javax.swing.JLabel lblTotal;
+    private javax.swing.JPanel pnlBtns;
+    private javax.swing.JPanel pnlCheckIn;
+    private javax.swing.JPanel pnlCheckOut;
+    private javax.swing.JPanel pnlConNo;
+    private javax.swing.JPanel pnlDate;
+    private javax.swing.JPanel pnlDetails;
+    private javax.swing.JPanel pnlEmail;
+    private javax.swing.JPanel pnlFooter;
+    private javax.swing.JPanel pnlHeadings;
+    private javax.swing.JPanel pnlMain;
+    private javax.swing.JPanel pnlName;
+    private javax.swing.JPanel pnlPrice;
+    private javax.swing.JPanel pnlRoom;
     // End of variables declaration//GEN-END:variables
 }

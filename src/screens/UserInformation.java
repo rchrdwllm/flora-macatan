@@ -246,7 +246,13 @@ public class UserInformation extends javax.swing.JFrame {
         
         this.user = new User(name, age, address, contact, email);
         
-        new DateSelection(this).setVisible(true);
+        DateSelection dateSelection = new DateSelection(this);
+        ReservationConfirmation reservationConfirmation = new ReservationConfirmation(this.user, dateSelection);
+        
+        
+        dateSelection.reservationConfirmation = reservationConfirmation;
+        
+        dateSelection.setVisible(true);
         
         this.setVisible(false);
     }//GEN-LAST:event_btnConfirmActionPerformed
