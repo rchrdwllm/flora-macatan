@@ -546,7 +546,6 @@ public class PaymentProcessing extends javax.swing.JFrame {
         lblNum11.setText("Password");
 
         pwd.setBackground(txtCVV.getBackground());
-        pwd.setFont(readexPro);
         pwd.setForeground(new java.awt.Color(125, 124, 131));
         pwd.setBorder(txtCVV.getBorder());
         pwd.addActionListener(new java.awt.event.ActionListener() {
