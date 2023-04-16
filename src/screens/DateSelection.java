@@ -77,7 +77,7 @@ public class DateSelection extends javax.swing.JFrame {
         pnlHeading.setLayout(new java.awt.BorderLayout());
 
         jLabel1.setFont(readexProSemiBold);
-        jLabel1.setForeground(new java.awt.Color(94, 94, 94));
+        jLabel1.setForeground(new java.awt.Color(58, 50, 44));
         jLabel1.setText("<html><head><style>body { font-family: \"Readex Pro\"; font-weight: 700; }</style></head>When would you like to <font color=\"#5B3700\">stay?</font></html>");
         pnlHeading.add(jLabel1, java.awt.BorderLayout.CENTER);
 
@@ -143,7 +143,7 @@ public class DateSelection extends javax.swing.JFrame {
         jPanel3.setLayout(new java.awt.BorderLayout());
 
         lblDateDiff.setFont(readexPro);
-        lblDateDiff.setForeground(new java.awt.Color(94, 94, 94));
+        lblDateDiff.setForeground(new java.awt.Color(58, 50, 44));
         lblDateDiff.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDateDiff.setText("0 days");
         lblDateDiff.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 32, 16, 32));
@@ -159,7 +159,7 @@ public class DateSelection extends javax.swing.JFrame {
 
         btnBack.setBackground(new java.awt.Color(246, 246, 246));
         btnBack.setFont(readexPro);
-        btnBack.setForeground(new java.awt.Color(94, 94, 94));
+        btnBack.setForeground(new java.awt.Color(58, 50, 44));
         btnBack.setText("Back");
         btnBack.setBorder(null);
         btnBack.setBorderPainted(false);

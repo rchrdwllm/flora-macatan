@@ -69,7 +69,7 @@
                   <Connection code="readexProSemiBold" type="code"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="5e" green="5e" red="5e" type="rgb"/>
+                  <Color blue="2c" green="32" red="3a" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Welcome to"/>
@@ -187,7 +187,7 @@
                   <Connection component="btnBook" name="font" type="property"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="5e" green="5e" red="5e" type="rgb"/>
+                  <Color blue="2c" green="32" red="3a" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="See our rooms"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -204,8 +204,8 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection component="btnRooms" name="font" type="property"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection component="btnRooms" name="foreground" type="property"/>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="2c" green="32" red="3a" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="About us"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">

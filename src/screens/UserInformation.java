@@ -89,7 +89,7 @@ public class UserInformation extends javax.swing.JFrame {
         pnlHeadings.setLayout(new java.awt.GridLayout(3, 0));
 
         jLabel1.setFont(readexProSemiBold);
-        jLabel1.setForeground(new java.awt.Color(94, 94, 94));
+        jLabel1.setForeground(new java.awt.Color(58, 50, 44));
         jLabel1.setText("<html><head><style>body { font-family: \"Readex Pro\"; font-weight: 700; }</style></head>Guest <font color=\"#5B3700\">information</font></html>");
         pnlHeadings.add(jLabel1);
 
@@ -191,7 +191,7 @@ public class UserInformation extends javax.swing.JFrame {
 
         btnBack.setBackground(new java.awt.Color(246, 246, 246));
         btnBack.setFont(readexPro);
-        btnBack.setForeground(new java.awt.Color(94, 94, 94));
+        btnBack.setForeground(new java.awt.Color(58, 50, 44));
         btnBack.setText("Back");
         btnBack.setToolTipText("");
         btnBack.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 16, 16, 16));
@@ -233,7 +233,7 @@ public class UserInformation extends javax.swing.JFrame {
     private void txtNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusGained
         if (txtName.getText().equals("Name")) {
             txtName.setText("");
-            txtName.setForeground(new java.awt.Color(94, 94, 94));
+            txtName.setForeground(new java.awt.Color(58,50,44));
         }
     }//GEN-LAST:event_txtNameFocusGained
 
@@ -261,7 +261,7 @@ public class UserInformation extends javax.swing.JFrame {
     private void txtAgeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAgeFocusGained
         if (txtAge.getText().equals("Age")) {
             txtAge.setText("");
-            txtAge.setForeground(new java.awt.Color(94, 94, 94));
+            txtAge.setForeground(new java.awt.Color(58,50,44));
         }
     }//GEN-LAST:event_txtAgeFocusGained
 
@@ -275,7 +275,7 @@ public class UserInformation extends javax.swing.JFrame {
     private void txtAddressFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAddressFocusGained
         if (txtAddress.getText().equals("Address")) {
             txtAddress.setText("");
-            txtAddress.setForeground(new java.awt.Color(94, 94, 94));
+            txtAddress.setForeground(new java.awt.Color(58,50,44));
         }
     }//GEN-LAST:event_txtAddressFocusGained
 
@@ -289,7 +289,7 @@ public class UserInformation extends javax.swing.JFrame {
     private void txtConNoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConNoFocusGained
         if (txtConNo.getText().equals("Contact number")) {
             txtConNo.setText("");
-            txtConNo.setForeground(new java.awt.Color(94, 94, 94));
+            txtConNo.setForeground(new java.awt.Color(58,50,44));
         }
     }//GEN-LAST:event_txtConNoFocusGained
 
@@ -303,7 +303,7 @@ public class UserInformation extends javax.swing.JFrame {
     private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
         if (txtEmail.getText().equals("Email")) {
             txtEmail.setText("");
-            txtEmail.setForeground(new java.awt.Color(94, 94, 94));
+            txtEmail.setForeground(new java.awt.Color(58,50,44));
         }
     }//GEN-LAST:event_txtEmailFocusGained
 

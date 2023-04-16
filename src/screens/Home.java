@@ -57,7 +57,7 @@ public class Home extends javax.swing.JFrame {
         pnlHeadings.setLayout(new java.awt.GridLayout(3, 1));
 
         jLabel1.setFont(readexProSemiBold);
-        jLabel1.setForeground(new java.awt.Color(94, 94, 94));
+        jLabel1.setForeground(new java.awt.Color(58, 50, 44));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Welcome to");
         pnlHeadings.add(jLabel1);
@@ -107,7 +107,7 @@ public class Home extends javax.swing.JFrame {
 
         btnRooms.setBackground(new java.awt.Color(246, 246, 246));
         btnRooms.setFont(btnBook.getFont());
-        btnRooms.setForeground(new java.awt.Color(94, 94, 94));
+        btnRooms.setForeground(new java.awt.Color(58, 50, 44));
         btnRooms.setText("See our rooms");
         btnRooms.setBorder(btnBook.getBorder());
         btnRooms.setBorderPainted(false);
@@ -115,7 +115,7 @@ public class Home extends javax.swing.JFrame {
 
         btnAbtUs.setBackground(btnRooms.getBackground());
         btnAbtUs.setFont(btnRooms.getFont());
-        btnAbtUs.setForeground(btnRooms.getForeground());
+        btnAbtUs.setForeground(new java.awt.Color(58, 50, 44));
         btnAbtUs.setText("About us");
         btnAbtUs.setBorder(btnBook.getBorder());
         btnAbtUs.setBorderPainted(false);

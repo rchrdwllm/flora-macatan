@@ -63,7 +63,7 @@
                   <Connection code="readexProSemiBold" type="code"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="5e" green="5e" red="5e" type="rgb"/>
+                  <Color blue="2c" green="32" red="3a" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;head&gt;&lt;style&gt;body { font-family: &quot;Readex Pro&quot;; font-weight: 700; }&lt;/style&gt;&lt;/head&gt;When would you like to &lt;font color=&quot;#5B3700&quot;&gt;stay?&lt;/font&gt;&lt;/html&gt;"/>
               </Properties>
@@ -260,7 +260,7 @@
                           <Connection code="readexPro" type="code"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="5e" green="5e" red="5e" type="rgb"/>
+                          <Color blue="2c" green="32" red="3a" type="rgb"/>
                         </Property>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="0 days"/>
@@ -307,7 +307,7 @@
                       <Connection code="readexPro" type="code"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="5e" green="5e" red="5e" type="rgb"/>
+                      <Color blue="2c" green="32" red="3a" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Back"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

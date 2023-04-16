@@ -220,7 +220,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         jPanel2.setForeground(new java.awt.Color(94, 94, 94));
 
         jLabel2.setFont(readexProSemiBold);
-        jLabel2.setForeground(new java.awt.Color(94, 94, 94));
+        jLabel2.setForeground(new java.awt.Color(58, 50, 44));
         jLabel2.setText("<html>Finalize your<font color=\"#5b3700\"> transaction</font></html>");
 
         pnlPaymentMethod.setBackground(new java.awt.Color(255, 255, 255));
@@ -241,7 +241,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         btnCard.setBackground(new java.awt.Color(246, 246, 246));
         PaymentMethods.add(btnCard);
         btnCard.setFont(readexPro);
-        btnCard.setForeground(new java.awt.Color(94, 94, 94));
+        btnCard.setForeground(new java.awt.Color(58, 50, 44));
         btnCard.setText("Credit / Debit Card");
         btnCard.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 8, 0, 8));
         btnCard.setBorderPainted(false);
@@ -263,7 +263,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         btnPaypal.setBackground(new java.awt.Color(246, 246, 246));
         PaymentMethods.add(btnPaypal);
         btnPaypal.setFont(readexPro);
-        btnPaypal.setForeground(new java.awt.Color(94, 94, 94));
+        btnPaypal.setForeground(new java.awt.Color(58, 50, 44));
         btnPaypal.setText("PayPal");
         btnPaypal.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 8, 0, 8));
         btnPaypal.setBorderPainted(false);
@@ -285,7 +285,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         btnGcash.setBackground(new java.awt.Color(246, 246, 246));
         PaymentMethods.add(btnGcash);
         btnGcash.setFont(readexPro);
-        btnGcash.setForeground(new java.awt.Color(94, 94, 94));
+        btnGcash.setForeground(new java.awt.Color(58, 50, 44));
         btnGcash.setText("GCash");
         btnGcash.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 8, 0, 8));
         btnGcash.setBorderPainted(false);
@@ -307,7 +307,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         btnMaya.setBackground(new java.awt.Color(246, 246, 246));
         PaymentMethods.add(btnMaya);
         btnMaya.setFont(readexPro);
-        btnMaya.setForeground(new java.awt.Color(94, 94, 94));
+        btnMaya.setForeground(new java.awt.Color(58, 50, 44));
         btnMaya.setText("Maya");
         btnMaya.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 8, 0, 8));
         btnMaya.setBorderPainted(false);
@@ -641,7 +641,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
 
         btnBack.setBackground(new java.awt.Color(246, 246, 246));
         btnBack.setFont(readexPro);
-        btnBack.setForeground(new java.awt.Color(94, 94, 94));
+        btnBack.setForeground(new java.awt.Color(58, 50, 44));
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 32, 16, 32));
         btnBack.setBorderPainted(false);
@@ -708,49 +708,49 @@ public class PaymentProcessing extends javax.swing.JFrame {
             btnCard.setForeground(new java.awt.Color(255, 255,255));
             
             btnPaypal.setBackground(new java.awt.Color(246, 246, 246));
-            btnPaypal.setForeground(new java.awt.Color(94, 94, 94));
+            btnPaypal.setForeground(new java.awt.Color(58,50,44));
             
             btnGcash.setBackground(new java.awt.Color(246, 246, 246));
-            btnGcash.setForeground(new java.awt.Color(94, 94, 94));
+            btnGcash.setForeground(new java.awt.Color(58,50,44));
             
             btnMaya.setBackground(new java.awt.Color(246, 246, 246));
-            btnMaya.setForeground(new java.awt.Color(94, 94, 94));
+            btnMaya.setForeground(new java.awt.Color(58,50,44));
         } else if (btnPaypal.isSelected()) {
             btnPaypal.setBackground(new java.awt.Color(95, 55,38));
             btnPaypal.setForeground(new java.awt.Color(255, 255,255));
             
             btnCard.setBackground(new java.awt.Color(246, 246, 246));
-            btnCard.setForeground(new java.awt.Color(94, 94, 94));
+            btnCard.setForeground(new java.awt.Color(58,50,44));
             
             btnGcash.setBackground(new java.awt.Color(246, 246, 246));
-            btnGcash.setForeground(new java.awt.Color(94, 94, 94));
+            btnGcash.setForeground(new java.awt.Color(58,50,44));
             
             btnMaya.setBackground(new java.awt.Color(246, 246, 246));
-            btnMaya.setForeground(new java.awt.Color(94, 94, 94));
+            btnMaya.setForeground(new java.awt.Color(58,50,44));
         } else if (btnGcash.isSelected()) {
             btnGcash.setBackground(new java.awt.Color(95, 55,38));
             btnGcash.setForeground(new java.awt.Color(255, 255,255));
             
             btnCard.setBackground(new java.awt.Color(246, 246, 246));
-            btnCard.setForeground(new java.awt.Color(94, 94, 94));
+            btnCard.setForeground(new java.awt.Color(58,50,44));
             
             btnPaypal.setBackground(new java.awt.Color(246, 246, 246));
-            btnPaypal.setForeground(new java.awt.Color(94, 94, 94));
+            btnPaypal.setForeground(new java.awt.Color(58,50,44));
             
             btnMaya.setBackground(new java.awt.Color(246, 246, 246));
-            btnMaya.setForeground(new java.awt.Color(94, 94, 94));
+            btnMaya.setForeground(new java.awt.Color(58,50,44));
         } else if (btnMaya.isSelected()) {
             btnMaya.setBackground(new java.awt.Color(95, 55,38));
             btnMaya.setForeground(new java.awt.Color(255, 255,255));
             
             btnCard.setBackground(new java.awt.Color(246, 246, 246));
-            btnCard.setForeground(new java.awt.Color(94, 94, 94));
+            btnCard.setForeground(new java.awt.Color(58,50,44));
             
             btnPaypal.setBackground(new java.awt.Color(246, 246, 246));
-            btnPaypal.setForeground(new java.awt.Color(94, 94, 94));
+            btnPaypal.setForeground(new java.awt.Color(58,50,44));
             
             btnGcash.setBackground(new java.awt.Color(246, 246, 246));
-            btnGcash.setForeground(new java.awt.Color(94, 94, 94));
+            btnGcash.setForeground(new java.awt.Color(58,50,44));
         }
     }
     

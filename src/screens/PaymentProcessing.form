@@ -391,7 +391,7 @@
                   <Connection code="readexProSemiBold" type="code"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="5e" green="5e" red="5e" type="rgb"/>
+                  <Color blue="2c" green="32" red="3a" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Finalize your&lt;font color=&quot;#5b3700&quot;&gt; transaction&lt;/font&gt;&lt;/html&gt;"/>
               </Properties>
@@ -459,7 +459,7 @@
                           <Connection code="readexPro" type="code"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="5e" green="5e" red="5e" type="rgb"/>
+                          <Color blue="2c" green="32" red="3a" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Credit / Debit Card"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -489,7 +489,7 @@
                           <Connection code="readexPro" type="code"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="5e" green="5e" red="5e" type="rgb"/>
+                          <Color blue="2c" green="32" red="3a" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="PayPal"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -519,7 +519,7 @@
                           <Connection code="readexPro" type="code"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="5e" green="5e" red="5e" type="rgb"/>
+                          <Color blue="2c" green="32" red="3a" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="GCash"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -549,7 +549,7 @@
                           <Connection code="readexPro" type="code"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="5e" green="5e" red="5e" type="rgb"/>
+                          <Color blue="2c" green="32" red="3a" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Maya"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1117,7 +1117,7 @@
                   <Connection code="readexPro" type="code"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="5e" green="5e" red="5e" type="rgb"/>
+                  <Color blue="2c" green="32" red="3a" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Back"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

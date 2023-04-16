@@ -61,12 +61,12 @@ public class PaymentConfirmation extends javax.swing.JFrame {
         jLabel4.setText("Reference number: #123456789");
 
         jLabel5.setFont(readexPro);
-        jLabel5.setForeground(new java.awt.Color(94, 94, 94));
+        jLabel5.setForeground(new java.awt.Color(58, 50, 44));
         jLabel5.setText("<html><style>p{text-align: center}</style><p>We'll be sending you an email confirmation to <b>LoreUna@gmail.com</b> shortly.</p></html>");
 
         jLabel1.setBackground(new java.awt.Color(88, 96, 106));
         jLabel1.setFont(readexPro);
-        jLabel1.setForeground(new java.awt.Color(94, 94, 94));
+        jLabel1.setForeground(new java.awt.Color(58, 50, 44));
         jLabel1.setText("<html><head><style>body { font-family: \"Readex Pro\"; font-weight: 700; }</style></head>Booking <font color=\"#5B3700\">confirmed!</font></html>");
 
         jLabel2.setFont(readexPro);
