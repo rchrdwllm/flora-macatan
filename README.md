@@ -4,4 +4,4 @@ The Hotel Reservation System is a simple Java project that allows users to make 
 
 ## Contributors
 
-This project is created and maintained by Computer Science students in Technological Institute of the Philippines, Quezon City.
+This project is created and maintained by Computer Science students from Technological Institute of the Philippines, Quezon City.
