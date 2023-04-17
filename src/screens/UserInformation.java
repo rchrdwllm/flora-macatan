@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import utilities.ReadexProLoader;
 import classes.User;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -244,17 +245,25 @@ public class UserInformation extends javax.swing.JFrame {
         String contact = txtConNo.getText();
         String email = txtEmail.getText();
         
-        this.user = new User(name, age, address, contact, email);
+        if (name.isEmpty() || age.isEmpty() || address.isEmpty() || contact.isEmpty() || email.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill out all fields.");
+        } else {
+            if (name.equals("Name") || age.equals("Age") || address.equals("Address") || contact.equals("Contact number") || email.equals("Email")) {
+                JOptionPane.showMessageDialog(null, "Please fill out all fields.");
+            } else {
+                this.user = new User(name, age, address, contact, email);
         
-        DateSelection dateSelection = new DateSelection(this);
-        ReservationConfirmation reservationConfirmation = new ReservationConfirmation(this.user, dateSelection);
-        
-        
-        dateSelection.reservationConfirmation = reservationConfirmation;
-        
-        dateSelection.setVisible(true);
-        
-        this.setVisible(false);
+                DateSelection dateSelection = new DateSelection(this);
+                ReservationConfirmation reservationConfirmation = new ReservationConfirmation(this.user, dateSelection);
+
+
+                dateSelection.reservationConfirmation = reservationConfirmation;
+
+                dateSelection.setVisible(true);
+
+                this.setVisible(false);
+            }
+        }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void txtNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusLost
