@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
 import utilities.ReadexProLoader;
+import classes.User;
 
 /**
  *
@@ -26,6 +27,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         setIconImage();
         setFonts();
         initComponents();
+        populateData();
         
         btnCard.setSelected(true);
     }
@@ -36,6 +38,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         setIconImage();
         setFonts();
         initComponents();
+        populateData();
         
         btnCard.setSelected(true);
     }
@@ -60,12 +63,12 @@ public class PaymentProcessing extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblBase = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        lblNoDays = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         btnPayNow = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -124,7 +127,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         pnlHeadings.setLayout(new java.awt.GridLayout(2, 0));
 
         lblRoom.setFont(readexPro);
-        lblRoom.setForeground(new java.awt.Color(94, 94, 94));
+        lblRoom.setForeground(new java.awt.Color(58, 50, 44));
         lblRoom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRoom.setText("Room");
         pnlHeadings.add(lblRoom);
@@ -151,11 +154,11 @@ public class PaymentProcessing extends javax.swing.JFrame {
         jLabel4.setText("Base price");
         jPanel6.add(jLabel4);
 
-        jLabel5.setFont(readexPro);
-        jLabel5.setForeground(new java.awt.Color(94, 94, 94));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("₱1500");
-        jPanel6.add(jLabel5);
+        lblBase.setFont(readexPro);
+        lblBase.setForeground(new java.awt.Color(58, 50, 44));
+        lblBase.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblBase.setText("₱1500");
+        jPanel6.add(lblBase);
 
         jLabel9.setFont(readexPro);
         jLabel9.setForeground(new java.awt.Color(171, 171, 171));
@@ -164,12 +167,12 @@ public class PaymentProcessing extends javax.swing.JFrame {
         jLabel9.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 32, 0));
         jPanel6.add(jLabel9);
 
-        jLabel10.setFont(readexPro);
-        jLabel10.setForeground(new java.awt.Color(94, 94, 94));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel10.setText("4");
-        jLabel10.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 32, 0));
-        jPanel6.add(jLabel10);
+        lblNoDays.setFont(readexPro);
+        lblNoDays.setForeground(new java.awt.Color(58, 50, 44));
+        lblNoDays.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNoDays.setText("4");
+        lblNoDays.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 32, 0));
+        jPanel6.add(lblNoDays);
 
         jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -183,11 +186,11 @@ public class PaymentProcessing extends javax.swing.JFrame {
         jLabel7.setText("Total");
         jPanel9.add(jLabel7);
 
-        jLabel8.setFont(readexProTotal);
-        jLabel8.setForeground(new java.awt.Color(94, 94, 94));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setText("₱1500");
-        jPanel9.add(jLabel8);
+        lblTotal.setFont(readexProTotal);
+        lblTotal.setForeground(new java.awt.Color(58, 50, 44));
+        lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTotal.setText("₱1500");
+        jPanel9.add(lblTotal);
 
         jPanel4.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 370, 70));
 
@@ -690,6 +693,11 @@ public class PaymentProcessing extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void populateData() {
+        lblNoDays.setText(Long.toString(reservationConfirmation.duration));
+        lblTotal.setText("PHP " + reservationConfirmation.duration * 1500);
+    }
+    
     private void setIconImage() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../assets/Flora_Logo_20x20.png")));
     }
@@ -921,7 +929,9 @@ public class PaymentProcessing extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMayaStateChanged
 
     private void btnPayNowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayNowActionPerformed
-        new PaymentConfirmation().setVisible(true);
+        User user = this.reservationConfirmation.user;
+        
+        new PaymentConfirmation(user).setVisible(true);
         
         this.dispose();
     }//GEN-LAST:event_btnPayNowActionPerformed
@@ -985,12 +995,9 @@ public class PaymentProcessing extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnPaypal;
     private javax.swing.JRadioButton btnVisa;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -1003,7 +1010,9 @@ public class PaymentProcessing extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JLabel lblBase;
     private javax.swing.JLabel lblCardType;
+    private javax.swing.JLabel lblNoDays;
     private javax.swing.JLabel lblNum;
     private javax.swing.JLabel lblNum1;
     private javax.swing.JLabel lblNum10;
@@ -1012,6 +1021,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
     private javax.swing.JLabel lblNum6;
     private javax.swing.JLabel lblRoom;
     private javax.swing.JLabel lblRoomType;
+    private javax.swing.JLabel lblTotal;
     private javax.swing.JPanel pnlCard;
     private javax.swing.JPanel pnlCardType;
     private javax.swing.JPanel pnlDetails;
