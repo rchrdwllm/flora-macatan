@@ -198,9 +198,11 @@ public class DateSelection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        reservationConfirmation.setVisible(true);
+        ReservationConfirmation reservationConfirmation = new ReservationConfirmation(this);
+        
         reservationConfirmation.duration = dateDiff;
         reservationConfirmation.populateData();
+        reservationConfirmation.setVisible(true);
         
         this.setVisible(false);
     }//GEN-LAST:event_btnNextActionPerformed

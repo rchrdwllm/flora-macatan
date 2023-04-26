@@ -30,8 +30,8 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         initComponents();
     }
     
-    public ReservationConfirmation(User user, DateSelection dateSelection) {
-        this.user = user;
+    public ReservationConfirmation(DateSelection dateSelection) {
+        this.user = dateSelection.userInformation.user;
         this.dateSelection = dateSelection;
         
         setIconImage();
@@ -305,7 +305,7 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         ReadexProLoader loader = new ReadexProLoader();
         
         readexPro = loader.readexPro(12);
-        readexProSemiBold = loader.readexProSemiBold(32);
+        readexProSemiBold = loader.readexProSemiBold(18);
     }
     
     /**
