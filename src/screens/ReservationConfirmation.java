@@ -304,7 +304,7 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         ReadexProLoader loader = new ReadexProLoader();
         
         readexPro = loader.readexPro(12);
-        readexProSemiBold = loader.readexProSemiBold(32);
+        readexProSemiBold = loader.readexProSemiBold(18);
     }
     
     /**
