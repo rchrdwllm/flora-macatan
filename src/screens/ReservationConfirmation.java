@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import utilities.ReadexProLoader;
 import classes.User;
+import classes.Reservation;
 import java.text.SimpleDateFormat;
 
 /**
@@ -15,7 +16,6 @@ import java.text.SimpleDateFormat;
  * @author William
  */
 public class ReservationConfirmation extends javax.swing.JFrame {
-    User user;
     DateSelection dateSelection;
     long duration;
     Font readexPro;
@@ -30,8 +30,7 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         initComponents();
     }
     
-    public ReservationConfirmation(User user, DateSelection dateSelection) {
-        this.user = user;
+    public ReservationConfirmation(DateSelection dateSelection) {
         this.dateSelection = dateSelection;
         
         setIconImage();
@@ -271,14 +270,14 @@ public class ReservationConfirmation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void populateData() {
-        lblName.setText(this.user.name);
-        lblConNo.setText(this.user.contact);
-        lblEmail.setText(this.user.email);
+        lblName.setText(User.name);
+        lblConNo.setText(User.contact);
+        lblEmail.setText(User.email);
         
         SimpleDateFormat formatter = new SimpleDateFormat("MMM dd yyyy");
             
-        String formattedCheckIn = formatter.format(this.dateSelection.checkIn);
-        String formattedCheckOut = formatter.format(this.dateSelection.checkOut);
+        String formattedCheckIn = formatter.format(Reservation.checkInDate);
+        String formattedCheckOut = formatter.format(Reservation.checkOutDate);
             
         lblCheckIn.setText(formattedCheckIn);
         lblCheckOut.setText(formattedCheckOut);

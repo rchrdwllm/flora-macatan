@@ -15,20 +15,11 @@ import classes.User;
 public class PaymentConfirmation extends javax.swing.JFrame {
     Font readexPro;
     Font readexProSemiBold;
-    User user;
 
     /**
      * Creates new form PaymentConfirmed
      */
     public PaymentConfirmation() {
-        setIconImage();
-        setFonts();
-        initComponents();
-    }
-    
-    public PaymentConfirmation(User user) {
-        this.user = user;
-        
         setIconImage();
         setFonts();
         initComponents();
@@ -72,7 +63,7 @@ public class PaymentConfirmation extends javax.swing.JFrame {
 
         jLabel5.setFont(readexPro);
         jLabel5.setForeground(new java.awt.Color(58, 50, 44));
-        jLabel5.setText("<html><style>p{text-align: center}</style><p>We'll be sending you an email confirmation to <b>" + this.user.email + "</b> shortly.</p></html>");
+        jLabel5.setText("<html><style>p{text-align: center}</style><p>We'll be sending you an email confirmation to <b>" + User.email + "</b> shortly.</p></html>");
 
         jLabel1.setBackground(new java.awt.Color(88, 96, 106));
         jLabel1.setFont(readexPro);

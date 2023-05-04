@@ -6,8 +6,10 @@ package screens;
 
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.sql.Connection;
 import utilities.ReadexProLoader;
 import classes.User;
+import classes.Database;
 import javax.swing.JOptionPane;
 
 /**
@@ -254,10 +256,6 @@ public class UserInformation extends javax.swing.JFrame {
                 this.user = new User(name, age, address, contact, email);
         
                 DateSelection dateSelection = new DateSelection(this);
-                ReservationConfirmation reservationConfirmation = new ReservationConfirmation(this.user, dateSelection);
-
-
-                dateSelection.reservationConfirmation = reservationConfirmation;
 
                 dateSelection.setVisible(true);
 

@@ -4,6 +4,7 @@
  */
 package screens;
 
+import classes.Database;
 import java.awt.Font;
 import utilities.ReadexProLoader;
 import java.awt.Toolkit;
@@ -20,6 +21,7 @@ public class Home extends javax.swing.JFrame {
         setIconImage();
         setFonts();
         initComponents();
+        initDb();
     }
 
     /**
@@ -140,6 +142,10 @@ public class Home extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void initDb() {
+        Database database = new Database();
+    }
+    
     private void setIconImage() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../assets/Flora_Logo_20x20.png")));
     }

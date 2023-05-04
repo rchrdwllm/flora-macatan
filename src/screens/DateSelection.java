@@ -5,10 +5,14 @@
 package screens;
 
 import java.awt.Font;
-import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Date;
 import utilities.ReadexProLoader;
+import classes.Database;
+import classes.Reservation;
 
 /**
  *
@@ -16,7 +20,7 @@ import utilities.ReadexProLoader;
  */
 public class DateSelection extends javax.swing.JFrame {
     UserInformation userInformation;
-    ReservationConfirmation reservationConfirmation;
+    Reservation reservation;
     Font readexPro;
     Font readexProSemiBold;
     long dateDiff;
@@ -31,8 +35,6 @@ public class DateSelection extends javax.swing.JFrame {
         setIconImage();
         setFonts();
         initComponents();
-        
-        GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(readexProSemiBold);
     }
     
     public DateSelection(UserInformation userInformation) {
@@ -41,6 +43,7 @@ public class DateSelection extends javax.swing.JFrame {
         setIconImage();
         setFonts();
         initComponents();
+        getUsers();
     }
 
     /**
@@ -197,10 +200,38 @@ public class DateSelection extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void getUsers() {
+        try {
+            Statement st = Database.sqlConnection.createStatement();
+            String sql = "SELECT * from user";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String age = rs.getString("age");
+                String address = rs.getString("address");
+                String contactNumber = rs.getString("contactNumber");
+                String email = rs.getString("email");
+                
+                System.out.println(name);
+                System.out.println(age);
+                System.out.println(address);
+                System.out.println(contactNumber);
+                System.out.println(email);
+            }
+        } catch (SQLException e) {
+            
+        }
+    }
+    
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        reservationConfirmation.setVisible(true);
+        this.reservation = new Reservation(this.checkIn, this.checkOut);
+        
+        ReservationConfirmation reservationConfirmation = new ReservationConfirmation(this);
+        
         reservationConfirmation.duration = dateDiff;
         reservationConfirmation.populateData();
+        reservationConfirmation.setVisible(true);
         
         this.setVisible(false);
     }//GEN-LAST:event_btnNextActionPerformed

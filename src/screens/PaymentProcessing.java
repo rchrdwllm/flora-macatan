@@ -9,6 +9,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import utilities.ReadexProLoader;
 import classes.User;
+import classes.Payment;
 
 /**
  *
@@ -16,6 +17,7 @@ import classes.User;
  */
 public class PaymentProcessing extends javax.swing.JFrame {
     ReservationConfirmation reservationConfirmation;
+    Payment payment;
     Font readexPro;
     Font readexProSemiBold;
     Font readexProTotal;
@@ -122,7 +124,6 @@ public class PaymentProcessing extends javax.swing.JFrame {
         pnlDetails.setToolTipText("");
         pnlDetails.setLayout(new java.awt.BorderLayout());
 
-        pnlHeadings.setBackground(new java.awt.Color(246, 246, 246));
         pnlHeadings.setBorder(javax.swing.BorderFactory.createEmptyBorder(56, 56, 0, 56));
         pnlHeadings.setLayout(new java.awt.GridLayout(2, 0));
 
@@ -140,11 +141,9 @@ public class PaymentProcessing extends javax.swing.JFrame {
 
         pnlDetails.add(pnlHeadings, java.awt.BorderLayout.NORTH);
 
-        jPanel4.setBackground(new java.awt.Color(246, 246, 246));
         jPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 112, 0, 112));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel6.setBackground(new java.awt.Color(246, 246, 246));
         jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 64, 0, 64));
         jPanel6.setLayout(new java.awt.GridLayout(2, 0, 112, 0));
 
@@ -176,7 +175,6 @@ public class PaymentProcessing extends javax.swing.JFrame {
 
         jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel9.setBackground(new java.awt.Color(246, 246, 246));
         jPanel9.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 64, 0, 64));
         jPanel9.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -194,7 +192,6 @@ public class PaymentProcessing extends javax.swing.JFrame {
 
         jPanel4.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 370, 70));
 
-        jPanel7.setBackground(new java.awt.Color(246, 246, 246));
         jPanel7.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 64, 64, 64));
         jPanel7.setMaximumSize(new java.awt.Dimension(46, 112));
         jPanel7.setLayout(new java.awt.BorderLayout());
@@ -210,7 +207,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
                 btnPayNowActionPerformed(evt);
             }
         });
-        jPanel7.add(btnPayNow, java.awt.BorderLayout.CENTER);
+        jPanel7.add(btnPayNow, java.awt.BorderLayout.PAGE_END);
 
         jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 370, -1));
 
@@ -929,9 +926,27 @@ public class PaymentProcessing extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMayaStateChanged
 
     private void btnPayNowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayNowActionPerformed
-        User user = this.reservationConfirmation.user;
+        new PaymentConfirmation().setVisible(true);
         
-        new PaymentConfirmation(user).setVisible(true);
+        User.addUser(User.name, User.age, User.address, User.contact, User.email, User.userId);
+        
+        String selectedMethod;
+        String cardNumber = txtCardNum.getText();
+        String phoneNumber = txtMobile.getText();
+        
+        if (btnCard.isSelected()) {
+            selectedMethod = "card";
+        } else if (btnPaypal.isSelected()) {
+            selectedMethod = "paypal";
+        } else if (btnGcash.isSelected()) {
+            selectedMethod = "gcash";
+        } else if (btnMaya.isSelected()) {
+            selectedMethod = "maya";
+        } else {
+            selectedMethod = "null";
+        }
+        
+        this.payment = new Payment(selectedMethod, 1500, cardNumber, phoneNumber);
         
         this.dispose();
     }//GEN-LAST:event_btnPayNowActionPerformed

@@ -94,7 +94,7 @@
               <Color blue="2c" green="32" red="3a" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="&quot;&lt;html&gt;&lt;style&gt;p{text-align: center}&lt;/style&gt;&lt;p&gt;We&apos;ll be sending you an email confirmation to &lt;b&gt;&quot; + this.user.email + &quot;&lt;/b&gt; shortly.&lt;/p&gt;&lt;/html&gt;&quot;" type="code"/>
+              <Connection code="&quot;&lt;html&gt;&lt;style&gt;p{text-align: center}&lt;/style&gt;&lt;p&gt;We&apos;ll be sending you an email confirmation to &lt;b&gt;&quot; + User.email + &quot;&lt;/b&gt; shortly.&lt;/p&gt;&lt;/html&gt;&quot;" type="code"/>
             </Property>
           </Properties>
         </Component>
