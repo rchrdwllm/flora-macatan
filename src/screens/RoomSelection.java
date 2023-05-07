@@ -10,7 +10,8 @@ package screens;
  * @author ange
  */
 public class RoomSelection extends javax.swing.JFrame {
-
+    String selectedRoom;
+    
     /**
      * Creates new form RoomSelectionWithButton
      */
@@ -31,7 +32,7 @@ public class RoomSelection extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        confirmButton = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -39,7 +40,7 @@ public class RoomSelection extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        confirmButton1 = new javax.swing.JButton();
+        btnStandard = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -49,7 +50,7 @@ public class RoomSelection extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        confirmButton2 = new javax.swing.JButton();
+        btnConnecting = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -61,7 +62,7 @@ public class RoomSelection extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        confirmButton4 = new javax.swing.JButton();
+        btnDeluxe = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
@@ -77,7 +78,7 @@ public class RoomSelection extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        confirmButton3 = new javax.swing.JButton();
+        btnSuite = new javax.swing.JButton();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
@@ -114,17 +115,17 @@ public class RoomSelection extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Rooms");
 
-        confirmButton.setBackground(new java.awt.Color(246, 246, 246));
-        confirmButton.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        confirmButton.setForeground(new java.awt.Color(58, 50, 44));
-        confirmButton.setText("Back");
-        confirmButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        confirmButton.setBorderPainted(false);
-        confirmButton.setFocusable(false);
-        confirmButton.setPreferredSize(new java.awt.Dimension(76, 40));
-        confirmButton.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setBackground(new java.awt.Color(246, 246, 246));
+        btnBack.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(58, 50, 44));
+        btnBack.setText("Back");
+        btnBack.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnBack.setBorderPainted(false);
+        btnBack.setFocusable(false);
+        btnBack.setPreferredSize(new java.awt.Dimension(76, 40));
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmButtonActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -157,16 +158,16 @@ public class RoomSelection extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("<html> <font style=\"font-size:18\"><b>₱1500</b></font><font color=\"#7D7C83\">/night");
 
-        confirmButton1.setBackground(new java.awt.Color(95, 55, 38));
-        confirmButton1.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        confirmButton1.setForeground(new java.awt.Color(255, 255, 255));
-        confirmButton1.setText("Select");
-        confirmButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        confirmButton1.setBorderPainted(false);
-        confirmButton1.setPreferredSize(new java.awt.Dimension(76, 40));
-        confirmButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnStandard.setBackground(new java.awt.Color(95, 55, 38));
+        btnStandard.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
+        btnStandard.setForeground(new java.awt.Color(255, 255, 255));
+        btnStandard.setText("Select");
+        btnStandard.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnStandard.setBorderPainted(false);
+        btnStandard.setPreferredSize(new java.awt.Dimension(76, 40));
+        btnStandard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmButton1ActionPerformed(evt);
+                btnStandardActionPerformed(evt);
             }
         });
 
@@ -212,7 +213,7 @@ public class RoomSelection extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(confirmButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnStandard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -243,7 +244,7 @@ public class RoomSelection extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(confirmButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnStandard, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
 
@@ -268,16 +269,16 @@ public class RoomSelection extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("<html> <font style=\"font-size:18\"><b>₱2500</b></font><font color=\"#7D7C83\">/night");
 
-        confirmButton2.setBackground(new java.awt.Color(95, 55, 38));
-        confirmButton2.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        confirmButton2.setForeground(new java.awt.Color(255, 255, 255));
-        confirmButton2.setText("Select");
-        confirmButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        confirmButton2.setBorderPainted(false);
-        confirmButton2.setPreferredSize(new java.awt.Dimension(76, 40));
-        confirmButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnConnecting.setBackground(new java.awt.Color(95, 55, 38));
+        btnConnecting.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
+        btnConnecting.setForeground(new java.awt.Color(255, 255, 255));
+        btnConnecting.setText("Select");
+        btnConnecting.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnConnecting.setBorderPainted(false);
+        btnConnecting.setPreferredSize(new java.awt.Dimension(76, 40));
+        btnConnecting.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmButton2ActionPerformed(evt);
+                btnConnectingActionPerformed(evt);
             }
         });
 
@@ -338,7 +339,7 @@ public class RoomSelection extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(confirmButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnConnecting, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -374,7 +375,7 @@ public class RoomSelection extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(confirmButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnConnecting, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
 
@@ -399,16 +400,16 @@ public class RoomSelection extends javax.swing.JFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("<html> <font style=\"font-size:18\"><b>₱4999</b></font><font color=\"#7D7C83\">/night");
 
-        confirmButton4.setBackground(new java.awt.Color(95, 55, 38));
-        confirmButton4.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        confirmButton4.setForeground(new java.awt.Color(255, 255, 255));
-        confirmButton4.setText("Select");
-        confirmButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        confirmButton4.setBorderPainted(false);
-        confirmButton4.setPreferredSize(new java.awt.Dimension(76, 40));
-        confirmButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnDeluxe.setBackground(new java.awt.Color(95, 55, 38));
+        btnDeluxe.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
+        btnDeluxe.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeluxe.setText("Select");
+        btnDeluxe.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnDeluxe.setBorderPainted(false);
+        btnDeluxe.setPreferredSize(new java.awt.Dimension(76, 40));
+        btnDeluxe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmButton4ActionPerformed(evt);
+                btnDeluxeActionPerformed(evt);
             }
         });
 
@@ -503,7 +504,7 @@ public class RoomSelection extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel36, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(confirmButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDeluxe, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel48, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel52, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel37, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -548,7 +549,7 @@ public class RoomSelection extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(confirmButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDeluxe, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
 
@@ -573,16 +574,16 @@ public class RoomSelection extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("<html> <font style=\"font-size:18\"><b>₱7999</b></font><font color=\"#7D7C83\">/night");
 
-        confirmButton3.setBackground(new java.awt.Color(95, 55, 38));
-        confirmButton3.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
-        confirmButton3.setForeground(new java.awt.Color(255, 255, 255));
-        confirmButton3.setText("Select");
-        confirmButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        confirmButton3.setBorderPainted(false);
-        confirmButton3.setPreferredSize(new java.awt.Dimension(76, 40));
-        confirmButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnSuite.setBackground(new java.awt.Color(95, 55, 38));
+        btnSuite.setFont(new java.awt.Font("Readex Pro", 0, 12)); // NOI18N
+        btnSuite.setForeground(new java.awt.Color(255, 255, 255));
+        btnSuite.setText("Select");
+        btnSuite.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnSuite.setBorderPainted(false);
+        btnSuite.setPreferredSize(new java.awt.Dimension(76, 40));
+        btnSuite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmButton3ActionPerformed(evt);
+                btnSuiteActionPerformed(evt);
             }
         });
 
@@ -692,7 +693,7 @@ public class RoomSelection extends javax.swing.JFrame {
                         .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(confirmButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSuite, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -740,7 +741,7 @@ public class RoomSelection extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(confirmButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSuite, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
 
@@ -782,7 +783,7 @@ public class RoomSelection extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jSeparator1))
-                    .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(162, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -797,7 +798,7 @@ public class RoomSelection extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(39, 39, 39)
-                .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(78, 78, 78))
         );
 
@@ -816,25 +817,43 @@ public class RoomSelection extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void confirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_confirmButton1ActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        new Dashboard().setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_confirmButtonActionPerformed
+    private void btnStandardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStandardActionPerformed
+        this.selectedRoom = "standard";
+        
+        new DateSelection(this).setVisible(true);
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_btnStandardActionPerformed
 
-    private void confirmButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_confirmButton2ActionPerformed
+    private void btnConnectingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnectingActionPerformed
+        this.selectedRoom = "connecting";
+        
+        new DateSelection(this).setVisible(true);
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_btnConnectingActionPerformed
 
-    private void confirmButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_confirmButton3ActionPerformed
+    private void btnDeluxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeluxeActionPerformed
+        this.selectedRoom = "deluxe";
+        
+        new DateSelection(this).setVisible(true);
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_btnDeluxeActionPerformed
 
-    private void confirmButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_confirmButton4ActionPerformed
+    private void btnSuiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuiteActionPerformed
+        this.selectedRoom = "suite";
+        
+        new DateSelection(this).setVisible(true);
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSuiteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -878,12 +897,12 @@ public class RoomSelection extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnConnecting;
+    private javax.swing.JButton btnDeluxe;
+    private javax.swing.JButton btnStandard;
+    private javax.swing.JButton btnSuite;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton confirmButton;
-    private javax.swing.JButton confirmButton1;
-    private javax.swing.JButton confirmButton2;
-    private javax.swing.JButton confirmButton3;
-    private javax.swing.JButton confirmButton4;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;

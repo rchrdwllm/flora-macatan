@@ -236,9 +236,15 @@ public class Login extends javax.swing.JFrame {
             ResultSet rs = stmt.executeQuery();
             
             if (rs.next()) {
+                String name = rs.getString("name");
+                String address = rs.getString("address");
+                String contact = rs.getString("contact");
+                String userId = rs.getString("userId");
                 String dbPassword = rs.getString("password");
                 
                 if (password.equals(dbPassword)) {
+                    new User(name, address, contact, email, password, userId);
+                    
                     new Dashboard().setVisible(true);
                     
                     this.dispose();

@@ -7,8 +7,9 @@ package screens;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 import utilities.ReadexProLoader;
-import classes.User;
+import classes.Reservation;
 import classes.Payment;
 
 /**
@@ -17,7 +18,6 @@ import classes.Payment;
  */
 public class PaymentProcessing extends javax.swing.JFrame {
     ReservationConfirmation reservationConfirmation;
-    Payment payment;
     Font readexPro;
     Font readexProSemiBold;
     Font readexProTotal;
@@ -103,7 +103,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         lblNum10 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         lblNum11 = new javax.swing.JLabel();
-        pwd = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
         pnlMobile = new javax.swing.JPanel();
         lblNum12 = new javax.swing.JLabel();
         txtMobile = new javax.swing.JTextField();
@@ -415,11 +415,6 @@ public class PaymentProcessing extends javax.swing.JFrame {
                 txtCardNumFocusLost(evt);
             }
         });
-        txtCardNum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCardNumActionPerformed(evt);
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.GridLayout(1, 0, 8, 0));
@@ -445,11 +440,6 @@ public class PaymentProcessing extends javax.swing.JFrame {
                 txtExpFocusLost(evt);
             }
         });
-        txtExp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtExpActionPerformed(evt);
-            }
-        });
         jPanel8.add(txtExp);
 
         jPanel1.add(jPanel8);
@@ -473,11 +463,6 @@ public class PaymentProcessing extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtCVVFocusLost(evt);
-            }
-        });
-        txtCVV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCVVActionPerformed(evt);
             }
         });
         jPanel10.add(txtCVV);
@@ -535,24 +520,14 @@ public class PaymentProcessing extends javax.swing.JFrame {
                 txtEmailFocusLost(evt);
             }
         });
-        txtEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
-            }
-        });
 
         lblNum11.setFont(readexPro);
         lblNum11.setForeground(new java.awt.Color(171, 171, 171));
         lblNum11.setText("Password");
 
-        pwd.setBackground(txtCVV.getBackground());
-        pwd.setForeground(new java.awt.Color(125, 124, 131));
-        pwd.setBorder(txtCVV.getBorder());
-        pwd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pwdActionPerformed(evt);
-            }
-        });
+        txtPassword.setBackground(txtCVV.getBackground());
+        txtPassword.setForeground(new java.awt.Color(125, 124, 131));
+        txtPassword.setBorder(txtCVV.getBorder());
 
         javax.swing.GroupLayout pnlPaypalLayout = new javax.swing.GroupLayout(pnlPaypal);
         pnlPaypal.setLayout(pnlPaypalLayout);
@@ -568,7 +543,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
                         .addGap(222, 222, 222))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPaypalLayout.createSequentialGroup()
                         .addGroup(pnlPaypalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(pwd, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE))
                         .addContainerGap())))
         );
@@ -582,7 +557,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblNum11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pwd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
@@ -605,11 +580,6 @@ public class PaymentProcessing extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtMobileFocusLost(evt);
-            }
-        });
-        txtMobile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMobileActionPerformed(evt);
             }
         });
 
@@ -691,8 +661,10 @@ public class PaymentProcessing extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void populateData() {
-        lblNoDays.setText(Long.toString(reservationConfirmation.duration));
-        lblTotal.setText("PHP " + reservationConfirmation.duration * 1500);
+        lblNoDays.setText(Long.toString(Reservation.duration));
+        lblTotal.setText("PHP " + Reservation.totalPrice);
+        lblBase.setText("PHP " + Reservation.basePrice);
+        lblRoomType.setText(Reservation.roomType.substring(0,1).toUpperCase() + Reservation.roomType.substring(1).toLowerCase());
     }
     
     private void setIconImage() {
@@ -796,18 +768,6 @@ public class PaymentProcessing extends javax.swing.JFrame {
         btnVisa.setForeground(new java.awt.Color(125, 124, 131));
     }//GEN-LAST:event_btnAmexActionPerformed
 
-    private void txtCardNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCardNumActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCardNumActionPerformed
-
-    private void txtExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtExpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtExpActionPerformed
-
-    private void txtCVVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCVVActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCVVActionPerformed
-
     private void txtCardNumFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCardNumFocusGained
         if ("xxxx xxxx xxxx xxxx".equals(txtCardNum.getText())) {
             txtCardNum.setText("");
@@ -878,18 +838,6 @@ public class PaymentProcessing extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtMobileFocusLost
 
-    private void txtMobileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMobileActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMobileActionPerformed
-
-    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailActionPerformed
-
-    private void pwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pwdActionPerformed
-
     private void btnVisaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btnVisaFocusLost
         btnVisa.setForeground(new java.awt.Color(125, 124, 131));
     }//GEN-LAST:event_btnVisaFocusLost
@@ -926,27 +874,37 @@ public class PaymentProcessing extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMayaStateChanged
 
     private void btnPayNowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayNowActionPerformed
-        new PaymentConfirmation().setVisible(true);
-        
-        String selectedMethod;
+        String selectedMethod = "";
         String cardNumber = txtCardNum.getText();
         String phoneNumber = txtMobile.getText();
+        String email = txtEmail.getText();
+        char[] password = txtPassword.getPassword();
         
-        if (btnCard.isSelected()) {
-            selectedMethod = "card";
-        } else if (btnPaypal.isSelected()) {
-            selectedMethod = "paypal";
-        } else if (btnGcash.isSelected()) {
-            selectedMethod = "gcash";
-        } else if (btnMaya.isSelected()) {
-            selectedMethod = "maya";
+        if (cardNumber.isEmpty() || phoneNumber.isEmpty() || email.isEmpty() || new String(password).isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter your payment details.");
         } else {
-            selectedMethod = "null";
+            if (btnCard.isSelected()) {
+                selectedMethod = "card";
+
+                new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
+            } else if (btnPaypal.isSelected()) {
+                selectedMethod = "paypal";
+
+                new Payment(selectedMethod, Reservation.totalPrice, email, password);
+            } else if (btnGcash.isSelected()) {
+                selectedMethod = "gcash";
+
+                new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
+            } else if (btnMaya.isSelected()) {
+                selectedMethod = "maya";
+
+                new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
+            }
+            
+            new PaymentConfirmation().setVisible(true);
+            
+            this.dispose();
         }
-        
-        this.payment = new Payment(selectedMethod, 1500, cardNumber, phoneNumber);
-        
-        this.dispose();
     }//GEN-LAST:event_btnPayNowActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -1044,11 +1002,11 @@ public class PaymentProcessing extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPayment;
     private javax.swing.JPanel pnlPaymentMethod;
     private javax.swing.JPanel pnlPaypal;
-    private javax.swing.JPasswordField pwd;
     private javax.swing.JTextField txtCVV;
     private javax.swing.JTextField txtCardNum;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtExp;
     private javax.swing.JTextField txtMobile;
+    private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,11 +19,10 @@ import classes.Reservation;
  * @author William
  */
 public class DateSelection extends javax.swing.JFrame {
-    Register userInformation;
-    Reservation reservation;
+    RoomSelection roomSelection;
     Font readexPro;
     Font readexProSemiBold;
-    long dateDiff;
+    long duration;
     
     public Date checkIn;
     public Date checkOut;
@@ -37,13 +36,12 @@ public class DateSelection extends javax.swing.JFrame {
         initComponents();
     }
     
-    public DateSelection(Register userInformation) {
-        this.userInformation = userInformation;
+    public DateSelection(RoomSelection roomSelection) {
+        this.roomSelection = roomSelection;
         
         setIconImage();
         setFonts();
         initComponents();
-        getUsers();
     }
 
     /**
@@ -200,44 +198,15 @@ public class DateSelection extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void getUsers() {
-        try {
-            Statement st = Database.sqlConnection.createStatement();
-            String sql = "SELECT * from user";
-            ResultSet rs = st.executeQuery(sql);
-            
-            while (rs.next()) {
-                String name = rs.getString("name");
-                String age = rs.getString("age");
-                String address = rs.getString("address");
-                String contactNumber = rs.getString("contactNumber");
-                String email = rs.getString("email");
-                
-                System.out.println(name);
-                System.out.println(age);
-                System.out.println(address);
-                System.out.println(contactNumber);
-                System.out.println(email);
-            }
-        } catch (SQLException e) {
-            
-        }
-    }
-    
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        this.reservation = new Reservation(this.checkIn, this.checkOut);
+        Reservation reservation = new Reservation(this.checkIn, this.checkOut, this.roomSelection.selectedRoom, this.duration);
         
-        ReservationConfirmation reservationConfirmation = new ReservationConfirmation(this);
-        
-        reservationConfirmation.duration = dateDiff;
-        reservationConfirmation.populateData();
-        reservationConfirmation.setVisible(true);
+        new ReservationConfirmation(this).setVisible(true);
         
         this.setVisible(false);
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void checkInDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_checkInDatePropertyChange
-        // TODO add your handling code here:
         try {
             calculateDateInterval();
         } catch (Exception e) {
@@ -246,7 +215,6 @@ public class DateSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_checkInDatePropertyChange
 
     private void checkOutDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_checkOutDatePropertyChange
-        // TODO add your handling code here:
         try {
             calculateDateInterval();
         } catch (Exception e) {
@@ -255,7 +223,7 @@ public class DateSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_checkOutDatePropertyChange
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        this.userInformation.setVisible(true);
+        this.roomSelection.setVisible(true);
         
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
@@ -267,9 +235,9 @@ public class DateSelection extends javax.swing.JFrame {
         if (date1 != null || date2 != null) {
             long diffInMilliseconds = Math.abs(date2.getTime() - date1.getTime());
 
-            dateDiff = diffInMilliseconds / (24 * 60 * 60 * 1000);
+            duration = diffInMilliseconds / (24 * 60 * 60 * 1000);
             
-            lblDateDiff.setText(Long.toString(dateDiff) + (dateDiff != 1 ? " days" : " day"));
+            lblDateDiff.setText(Long.toString(duration) + (duration != 1 ? " days" : " day"));
             
             this.checkIn = checkInDate.getDate();
             this.checkOut = checkOutDate.getDate();

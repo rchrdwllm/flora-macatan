@@ -46,10 +46,10 @@ public class PaymentConfirmation extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlMain = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblReference = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Flora Macatan");
@@ -57,21 +57,21 @@ public class PaymentConfirmation extends javax.swing.JFrame {
         pnlMain.setBackground(new java.awt.Color(255, 255, 255));
         pnlMain.setBorder(javax.swing.BorderFactory.createEmptyBorder(224, 256, 224, 256));
 
-        jLabel4.setFont(readexPro);
-        jLabel4.setForeground(new java.awt.Color(171, 171, 171));
-        jLabel4.setText("Reference number: #123456789");
+        lblReference.setFont(readexPro);
+        lblReference.setForeground(new java.awt.Color(171, 171, 171));
+        lblReference.setText("Reference number: #123456789");
 
-        jLabel5.setFont(readexPro);
-        jLabel5.setForeground(new java.awt.Color(58, 50, 44));
-        jLabel5.setText("<html><style>p{text-align: center}</style><p>We'll be sending you an email confirmation to <b>" + User.email + "</b> shortly.</p></html>");
+        jLabel2.setFont(readexPro);
+        jLabel2.setForeground(new java.awt.Color(58, 50, 44));
+        jLabel2.setText("<html><style>p{text-align: center}</style><p>We'll be sending you an email confirmation to <b>" + User.email + "</b> shortly.</p></html>");
 
         jLabel1.setBackground(new java.awt.Color(88, 96, 106));
         jLabel1.setFont(readexPro);
         jLabel1.setForeground(new java.awt.Color(58, 50, 44));
         jLabel1.setText("<html><head><style>body { font-family: \"Readex Pro\"; font-weight: 700; }</style></head>Booking <font color=\"#5B3700\">confirmed!</font></html>");
 
-        jLabel2.setFont(readexPro);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("../assets/key-checkmark.png")));
+        lblImage.setFont(readexPro);
+        lblImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("../assets/key-checkmark.png")));
 
         javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
         pnlMain.setLayout(pnlMainLayout);
@@ -82,22 +82,22 @@ public class PaymentConfirmation extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(pnlMainLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
-                .addComponent(jLabel4))
+                .addComponent(lblReference))
             .addGroup(pnlMainLayout.createSequentialGroup()
                 .addGap(90, 90, 90)
-                .addComponent(jLabel2))
-            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblImage))
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         pnlMainLayout.setVerticalGroup(
             pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainLayout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
-                .addComponent(jLabel4)
+                .addComponent(lblReference)
                 .addGap(34, 34, 34)
-                .addComponent(jLabel2)
+                .addComponent(lblImage)
                 .addGap(10, 10, 10)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getContentPane().add(pnlMain, java.awt.BorderLayout.CENTER);
@@ -145,8 +145,8 @@ public class PaymentConfirmation extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lblImage;
+    private javax.swing.JLabel lblReference;
     private javax.swing.JPanel pnlMain;
     // End of variables declaration//GEN-END:variables
 }

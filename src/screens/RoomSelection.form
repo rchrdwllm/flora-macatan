@@ -74,7 +74,7 @@
                           <Component id="jPanel2" max="32767" attributes="0"/>
                           <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="confirmButton" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
+                      <Component id="btnBack" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="162" max="32767" attributes="0"/>
               </Group>
@@ -92,7 +92,7 @@
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Component id="jPanel2" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                  <Component id="confirmButton" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="btnBack" min="-2" pref="48" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -114,7 +114,7 @@
             <Property name="text" type="java.lang.String" value="Rooms"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="confirmButton">
+        <Component class="javax.swing.JButton" name="btnBack">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f6" green="f6" red="f6" type="rgb"/>
@@ -138,7 +138,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -209,7 +209,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="confirmButton1" max="32767" attributes="0"/>
+                              <Component id="btnStandard" max="32767" attributes="0"/>
                               <Component id="jLabel2" alignment="0" pref="143" max="32767" attributes="0"/>
                               <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel22" alignment="0" pref="0" max="32767" attributes="0"/>
@@ -243,7 +243,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel22" min="-2" pref="18" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="confirmButton1" min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="btnStandard" min="-2" pref="48" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -296,7 +296,7 @@
                     <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;font style=&quot;font-size:18&quot;&gt;&lt;b&gt;&#x20b1;1500&lt;/b&gt;&lt;/font&gt;&lt;font color=&quot;#7D7C83&quot;&gt;/night"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="confirmButton1">
+                <Component class="javax.swing.JButton" name="btnStandard">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="26" green="37" red="5f" type="rgb"/>
@@ -319,7 +319,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStandardActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel19">
@@ -418,7 +418,7 @@
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel30" pref="0" max="32767" attributes="0"/>
-                              <Component id="confirmButton2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnConnecting" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel32" alignment="1" pref="0" max="32767" attributes="0"/>
                               <Component id="jLabel28" alignment="1" pref="0" max="32767" attributes="0"/>
                               <Component id="jLabel27" alignment="1" pref="0" max="32767" attributes="0"/>
@@ -457,7 +457,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel28" min="-2" pref="18" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="confirmButton2" min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="btnConnecting" min="-2" pref="48" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -510,7 +510,7 @@
                     <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;font style=&quot;font-size:18&quot;&gt;&lt;b&gt;&#x20b1;2500&lt;/b&gt;&lt;/font&gt;&lt;font color=&quot;#7D7C83&quot;&gt;/night"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="confirmButton2">
+                <Component class="javax.swing.JButton" name="btnConnecting">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="26" green="37" red="5f" type="rgb"/>
@@ -533,7 +533,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmButton2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConnectingActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel26">
@@ -670,7 +670,7 @@
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="jLabel23" alignment="1" pref="0" max="32767" attributes="0"/>
                                       <Component id="jLabel36" alignment="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="confirmButton4" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btnDeluxe" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jLabel48" alignment="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="jLabel52" alignment="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="jLabel37" alignment="0" pref="0" max="32767" attributes="0"/>
@@ -720,7 +720,7 @@
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="jLabel24" min="-2" pref="18" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="confirmButton4" min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="btnDeluxe" min="-2" pref="48" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -773,7 +773,7 @@
                     <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;font style=&quot;font-size:18&quot;&gt;&lt;b&gt;&#x20b1;4999&lt;/b&gt;&lt;/font&gt;&lt;font color=&quot;#7D7C83&quot;&gt;/night"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="confirmButton4">
+                <Component class="javax.swing.JButton" name="btnDeluxe">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="26" green="37" red="5f" type="rgb"/>
@@ -796,7 +796,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmButton4ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeluxeActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel35">
@@ -998,7 +998,7 @@
                                   <Component id="jLabel33" alignment="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="jLabel40" alignment="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="confirmButton3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnSuite" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jLabel7" alignment="0" pref="143" max="32767" attributes="0"/>
                                   <Component id="jLabel17" alignment="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="jLabel39" alignment="0" pref="0" max="32767" attributes="0"/>
@@ -1050,7 +1050,7 @@
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="42" max="32767" attributes="0"/>
-                          <Component id="confirmButton3" min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="btnSuite" min="-2" pref="48" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1103,7 +1103,7 @@
                     <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;font style=&quot;font-size:18&quot;&gt;&lt;b&gt;&#x20b1;7999&lt;/b&gt;&lt;/font&gt;&lt;font color=&quot;#7D7C83&quot;&gt;/night"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="confirmButton3">
+                <Component class="javax.swing.JButton" name="btnSuite">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="26" green="37" red="5f" type="rgb"/>
@@ -1126,7 +1126,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmButton3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuiteActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel39">

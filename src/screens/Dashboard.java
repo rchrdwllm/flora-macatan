@@ -99,6 +99,11 @@ public class Dashboard extends javax.swing.JFrame {
         btnBook.setText("Book now!");
         btnBook.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 1, 16, 1));
         btnBook.setBorderPainted(false);
+        btnBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookActionPerformed(evt);
+            }
+        });
         pnlBtns.add(btnBook);
 
         btnSeeRooms.setBackground(new java.awt.Color(246, 246, 246));
@@ -157,6 +162,12 @@ public class Dashboard extends javax.swing.JFrame {
         
         this.dispose();
     }//GEN-LAST:event_btnSignOutActionPerformed
+
+    private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
+        new RoomSelection().setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnBookActionPerformed
 
     private void setIconImage() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../assets/Flora_Logo_20x20.png")));

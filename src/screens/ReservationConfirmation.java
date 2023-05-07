@@ -17,7 +17,6 @@ import java.text.SimpleDateFormat;
  */
 public class ReservationConfirmation extends javax.swing.JFrame {
     DateSelection dateSelection;
-    long duration;
     Font readexPro;
     Font readexProSemiBold;
 
@@ -36,6 +35,7 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         setIconImage();
         setFonts();
         initComponents();
+        populateData();
     }
 
     /**
@@ -269,7 +269,7 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void populateData() {
+    private void populateData() {
         lblName.setText(User.name);
         lblConNo.setText(User.contact);
         lblEmail.setText(User.email);
@@ -278,10 +278,36 @@ public class ReservationConfirmation extends javax.swing.JFrame {
             
         String formattedCheckIn = formatter.format(Reservation.checkInDate);
         String formattedCheckOut = formatter.format(Reservation.checkOutDate);
+        
+        int basePrice;
+        String roomType = Reservation.roomType;
+        
+        switch (roomType) {
+            case "standard":
+                basePrice = 1500;
+                break;
+            case "connecting":
+                basePrice = 2500;
+                break;
+            case "deluxe":
+                basePrice = 4999;
+                break;
+            case "suite":
+                basePrice = 7999;
+                break;
+            default:
+                basePrice = 1500;
+                break;
+        }
+        
+        int totalPrice = (int) Reservation.duration * basePrice;
+        
+        Reservation.basePrice = basePrice;
+        Reservation.totalPrice = totalPrice;
             
         lblCheckIn.setText(formattedCheckIn);
         lblCheckOut.setText(formattedCheckOut);
-        lblTotal.setText("PHP " + Long.toString(duration * 1500));
+        lblTotal.setText("PHP " + Integer.toString(totalPrice));
     }
     
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
