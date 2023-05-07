@@ -876,35 +876,49 @@ public class PaymentProcessing extends javax.swing.JFrame {
     private void btnPayNowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayNowActionPerformed
         String selectedMethod = "";
         String cardNumber = txtCardNum.getText();
+        String expiry = txtExp.getText();
+        String cvv = txtCVV.getText();
         String phoneNumber = txtMobile.getText();
         String email = txtEmail.getText();
         char[] password = txtPassword.getPassword();
-        
-        if (cardNumber.isEmpty() || phoneNumber.isEmpty() || email.isEmpty() || new String(password).isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please enter your payment details.");
-        } else {
-            if (btnCard.isSelected()) {
-                selectedMethod = "card";
+            
+        if (btnCard.isSelected()) {
+            selectedMethod = "card";
 
-                new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
-            } else if (btnPaypal.isSelected()) {
-                selectedMethod = "paypal";
-
-                new Payment(selectedMethod, Reservation.totalPrice, email, password);
-            } else if (btnGcash.isSelected()) {
-                selectedMethod = "gcash";
-
-                new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
-            } else if (btnMaya.isSelected()) {
-                selectedMethod = "maya";
-
+            if (cardNumber.isEmpty() || expiry.isEmpty() || cvv.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter your payment details");
+            } else {
                 new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
             }
+        } else if (btnPaypal.isSelected()) {
+            selectedMethod = "paypal";
             
-            new PaymentConfirmation().setVisible(true);
-            
-            this.dispose();
+            if (cardNumber.isEmpty() || expiry.isEmpty() || cvv.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter your payment details");
+            } else {
+                new Payment(selectedMethod, Reservation.totalPrice, email, password);
+            }
+        } else if (btnGcash.isSelected()) {
+            selectedMethod = "gcash";
+
+            if (phoneNumber.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter your payment details");
+            } else {
+                new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
+            }
+        } else if (btnMaya.isSelected()) {
+            selectedMethod = "maya";
+
+            if (phoneNumber.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter your payment details");
+            } else {
+                new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
+            }
         }
+            
+        new PaymentConfirmation().setVisible(true);
+            
+        this.dispose();
     }//GEN-LAST:event_btnPayNowActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
