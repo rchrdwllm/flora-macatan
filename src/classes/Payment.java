@@ -13,15 +13,27 @@ import java.util.UUID;
 public class Payment {
     public static String type;
     public static int total;
+    public static String email;
+    public static char[] password;
     public static String cardNumber;
     public static String phoneNumber;
     public static String paymentId;
     
-    public Payment(String uType, int uTotal, String uCardNumber, String uPhoneNumber) {
-        type = uType;
-        total = uTotal;
-        cardNumber = !uCardNumber.equals("") ? uCardNumber : "";
-        phoneNumber = !uPhoneNumber.equals("") ? uPhoneNumber : "";
-        paymentId = UUID.randomUUID().toString();
+    public Payment(String type, int total, String cardNumber, String phoneNumber) {
+        Payment.type = type;
+        Payment.total = total;
+        Payment.cardNumber = !cardNumber.equals("") ? cardNumber : "";
+        Payment.phoneNumber = !phoneNumber.equals("") ? phoneNumber : "";
+        Payment.paymentId = UUID.randomUUID().toString();
+    }
+    
+    public Payment(String type, int total, String email, char[] password) {
+        Payment.type = type;
+        Payment.total = total;
+        Payment.email = email;
+        Payment.password = password;
+        Payment.cardNumber = !cardNumber.equals("") ? cardNumber : "";
+        Payment.phoneNumber = !phoneNumber.equals("") ? phoneNumber : "";
+        Payment.paymentId = UUID.randomUUID().toString();
     }
 }
