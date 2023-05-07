@@ -25,7 +25,17 @@ public class User {
         User.address = address;
         User.contact = contact;
         User.email = email;
+        User.password = password;
         User.userId = UUID.randomUUID().toString();
+    }
+    
+    public User(String name, String address, String contact, String email, String password, String userId) {
+        User.name = name;
+        User.address = address;
+        User.contact = contact;
+        User.email = email;
+        User.password = password;
+        User.userId = userId;
     }
     
     public static void addUser(String name, String address, String contact, String email, String password, String userId) {
