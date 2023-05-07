@@ -14,35 +14,30 @@ import java.util.UUID;
  */
 public class User {
     public static String name;
-    public static String age;
     public static String address;
     public static String contact;
     public static String email;
+    public static String password;
     public static String userId;
     
-    public User(String uName, String uAge, String uAddress, String uContact, String uEmail) {
-        name = uName;
-        age = uAge;
-        address = uAddress;
-        contact = uContact;
-        email = uEmail;
-        userId = UUID.randomUUID().toString();
+    public User(String name, String address, String contact, String email, String password) {
+        User.name = name;
+        User.address = address;
+        User.contact = contact;
+        User.email = email;
+        User.userId = UUID.randomUUID().toString();
     }
     
-    public User getDetails() {
-        return this;
-    }
-    
-    public static void addUser(String name, String age, String address, String contact, String email, String userId) {
+    public static void addUser(String name, String address, String contact, String email, String password, String userId) {
         try {
-            String st = "INSERT INTO user (name, age, address, contact, email, userId) VALUES (?, ?, ?, ?, ?, ?)";
+            String st = "INSERT INTO user (name, address, contact, email, password, userId) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement pstmt = Database.sqlConnection.prepareStatement(st);
             
             pstmt.setString(1, name);
-            pstmt.setString(2, age);
-            pstmt.setString(3, address);
-            pstmt.setString(4, contact);
-            pstmt.setString(5, email);
+            pstmt.setString(2, address);
+            pstmt.setString(3, contact);
+            pstmt.setString(4, email);
+            pstmt.setString(5, password);
             pstmt.setString(6, userId);
             
             pstmt.executeUpdate();
@@ -53,23 +48,23 @@ public class User {
         }
     }
     
-    public void setName(String name) {
-        this.name = name;
+    public User getDetails() {
+        return this;
     }
     
-    public void setAge(String age) {
-        this.age = age;
+    public void setName(String name) {
+        User.name = name;
     }
     
     public void setAddress(String address) {
-        this.address = address;
+        User.address = address;
     }
     
     public void setContact(String contact) {
-        this.contact = contact;
+        User.contact = contact;
     }
     
     public void setEmail(String email) {
-        this.email = email;
+        User.email = email;
     }
 }
