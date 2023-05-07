@@ -14,11 +14,17 @@ import java.util.Date;
 public class Reservation {
     public static Date checkInDate;
     public static Date checkOutDate;
+    public static String roomType;
+    public static long duration;
+    public static int basePrice = 0;
+    public static int totalPrice = 0;
     public static String reservationId;
     
-    public Reservation(Date uCheckInDate, Date uCheckOutDate) {
-        checkInDate = uCheckInDate;
-        checkOutDate = uCheckOutDate;
-        reservationId = UUID.randomUUID().toString();
+    public Reservation(Date checkInDate, Date checkOutDate, String roomType, long duration) {
+        Reservation.checkInDate = checkInDate;
+        Reservation.checkOutDate = checkOutDate;
+        Reservation.roomType = roomType;
+        Reservation.duration = duration;
+        Reservation.reservationId = UUID.randomUUID().toString();
     }
 }
