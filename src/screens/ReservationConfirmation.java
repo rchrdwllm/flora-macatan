@@ -64,7 +64,7 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         lblEmail = new javax.swing.JLabel();
         pnlRoom = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        lblName3 = new javax.swing.JLabel();
+        lblRoomType = new javax.swing.JLabel();
         pnlDate = new javax.swing.JPanel();
         pnlCheckIn = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -100,7 +100,6 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         jLabel2.setText("Review your booking details.");
         pnlHeadings.add(jLabel2);
 
-        jSeparator1.setBackground(new java.awt.Color(246, 246, 246));
         jSeparator1.setForeground(new java.awt.Color(246, 246, 246));
         pnlHeadings.add(jSeparator1);
 
@@ -165,11 +164,11 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         jLabel6.setText("Room:");
         pnlRoom.add(jLabel6);
 
-        lblName3.setFont(readexPro);
-        lblName3.setForeground(new java.awt.Color(58, 50, 44));
-        lblName3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblName3.setText("Suite Room");
-        pnlRoom.add(lblName3);
+        lblRoomType.setFont(readexPro);
+        lblRoomType.setForeground(new java.awt.Color(58, 50, 44));
+        lblRoomType.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblRoomType.setText("Suite Room");
+        pnlRoom.add(lblRoomType);
 
         pnlDetails.add(pnlRoom);
 
@@ -273,6 +272,7 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         lblName.setText(User.name);
         lblConNo.setText(User.contact);
         lblEmail.setText(User.email);
+        lblRoomType.setText(Reservation.roomType.substring(0,1).toUpperCase() + Reservation.roomType.substring(1).toLowerCase());
         
         SimpleDateFormat formatter = new SimpleDateFormat("MMM dd yyyy");
             
@@ -387,7 +387,7 @@ public class ReservationConfirmation extends javax.swing.JFrame {
     private javax.swing.JLabel lblConNo;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblName3;
+    private javax.swing.JLabel lblRoomType;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JPanel pnlBtns;
     private javax.swing.JPanel pnlCheckIn;
