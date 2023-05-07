@@ -19,7 +19,7 @@ import classes.Reservation;
  * @author William
  */
 public class DateSelection extends javax.swing.JFrame {
-    UserInformation userInformation;
+    Register userInformation;
     Reservation reservation;
     Font readexPro;
     Font readexProSemiBold;
@@ -37,7 +37,7 @@ public class DateSelection extends javax.swing.JFrame {
         initComponents();
     }
     
-    public DateSelection(UserInformation userInformation) {
+    public DateSelection(Register userInformation) {
         this.userInformation = userInformation;
         
         setIconImage();

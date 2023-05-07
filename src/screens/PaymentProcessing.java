@@ -928,8 +928,6 @@ public class PaymentProcessing extends javax.swing.JFrame {
     private void btnPayNowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayNowActionPerformed
         new PaymentConfirmation().setVisible(true);
         
-        User.addUser(User.name, User.age, User.address, User.contact, User.email, User.userId);
-        
         String selectedMethod;
         String cardNumber = txtCardNum.getText();
         String phoneNumber = txtMobile.getText();

@@ -6,18 +6,20 @@ package screens;
 
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.sql.Connection;
+import java.util.Arrays;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import utilities.ReadexProLoader;
 import classes.User;
 import classes.Database;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author William
  */
-public class UserInformation extends javax.swing.JFrame {
-    Home home;
+public class Register extends javax.swing.JFrame {
     Font readexPro;
     Font readexProSemiBold;
     
@@ -26,16 +28,7 @@ public class UserInformation extends javax.swing.JFrame {
     /**
      * Creates new form UserInformationEntry
      */
-    public UserInformation() {
-        setIconImage();
-        setFonts();
-        initComponents();
-        focus();
-    }
-    
-    public UserInformation(Home home) {
-        this.home = home;
-        
+    public Register() {
         setIconImage();
         setFonts();
         initComponents();
@@ -73,13 +66,13 @@ public class UserInformation extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         pnlForms = new javax.swing.JPanel();
         txtName = new javax.swing.JTextField();
-        txtAge = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
         txtConNo = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
         pnlBtns = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
-        btnConfirm = new javax.swing.JButton();
+        btnRegister = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Flora Macatan");
@@ -101,7 +94,6 @@ public class UserInformation extends javax.swing.JFrame {
         jLabel2.setText("Provide your booking information");
         pnlHeadings.add(jLabel2);
 
-        jSeparator1.setBackground(new java.awt.Color(246, 246, 246));
         jSeparator1.setForeground(new java.awt.Color(246, 246, 246));
         pnlHeadings.add(jSeparator1);
 
@@ -125,21 +117,6 @@ public class UserInformation extends javax.swing.JFrame {
             }
         });
         pnlForms.add(txtName);
-
-        txtAge.setBackground(new java.awt.Color(246, 246, 246));
-        txtAge.setFont(readexPro);
-        txtAge.setForeground(new java.awt.Color(171, 171, 171));
-        txtAge.setText("Age");
-        txtAge.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(201, 201, 201), 1, true), javax.swing.BorderFactory.createEmptyBorder(16, 16, 16, 16)));
-        txtAge.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtAgeFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtAgeFocusLost(evt);
-            }
-        });
-        pnlForms.add(txtAge);
 
         txtAddress.setBackground(new java.awt.Color(246, 246, 246));
         txtAddress.setFont(readexPro);
@@ -186,6 +163,22 @@ public class UserInformation extends javax.swing.JFrame {
         });
         pnlForms.add(txtEmail);
 
+        txtPassword.setBackground(new java.awt.Color(246, 246, 246));
+        txtPassword.setFont(readexPro);
+        txtPassword.setForeground(new java.awt.Color(171, 171, 171));
+        txtPassword.setText("Password");
+        txtPassword.setBorder(txtName.getBorder());
+        txtPassword.setEchoChar('\u0000');
+        txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPasswordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPasswordFocusLost(evt);
+            }
+        });
+        pnlForms.add(txtPassword);
+
         pnlMain.add(pnlForms, java.awt.BorderLayout.CENTER);
 
         pnlBtns.setBackground(new java.awt.Color(255, 255, 255));
@@ -206,18 +199,18 @@ public class UserInformation extends javax.swing.JFrame {
         });
         pnlBtns.add(btnBack);
 
-        btnConfirm.setBackground(new java.awt.Color(91, 55, 0));
-        btnConfirm.setFont(readexPro);
-        btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
-        btnConfirm.setText("Confirm");
-        btnConfirm.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 16, 16, 16));
-        btnConfirm.setBorderPainted(false);
-        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+        btnRegister.setBackground(new java.awt.Color(91, 55, 0));
+        btnRegister.setFont(readexPro);
+        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegister.setText("Register");
+        btnRegister.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 16, 16, 16));
+        btnRegister.setBorderPainted(false);
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfirmActionPerformed(evt);
+                btnRegisterActionPerformed(evt);
             }
         });
-        pnlBtns.add(btnConfirm);
+        pnlBtns.add(btnRegister);
 
         pnlMain.add(pnlBtns, java.awt.BorderLayout.SOUTH);
 
@@ -228,7 +221,7 @@ public class UserInformation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        this.home.setVisible(true);
+        new Home().setVisible(true);
         
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
@@ -240,48 +233,12 @@ public class UserInformation extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtNameFocusGained
 
-    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        String name = txtName.getText();
-        String age = txtAge.getText();
-        String address = txtAddress.getText();
-        String contact = txtConNo.getText();
-        String email = txtEmail.getText();
-        
-        if (name.isEmpty() || age.isEmpty() || address.isEmpty() || contact.isEmpty() || email.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please fill out all fields.");
-        } else if (name.equals("Name") || age.equals("Age") || address.equals("Address") || contact.equals("Contact number") || email.equals("Email")) {
-            JOptionPane.showMessageDialog(null, "Please fill out all fields.");
-        } else {
-            this.user = new User(name, age, address, contact, email);
-        
-            DateSelection dateSelection = new DateSelection(this);
-
-            dateSelection.setVisible(true);
-
-            this.setVisible(false);
-        }
-    }//GEN-LAST:event_btnConfirmActionPerformed
-
     private void txtNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusLost
         if (txtName.getText().equals("")) {
             txtName.setText("Name");
             txtName.setForeground(new java.awt.Color(171, 171, 171));
         }
     }//GEN-LAST:event_txtNameFocusLost
-
-    private void txtAgeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAgeFocusGained
-        if (txtAge.getText().equals("Age")) {
-            txtAge.setText("");
-            txtAge.setForeground(new java.awt.Color(58,50,44));
-        }
-    }//GEN-LAST:event_txtAgeFocusGained
-
-    private void txtAgeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAgeFocusLost
-        if (txtAge.getText().equals("")) {
-            txtAge.setText("Age");
-            txtAge.setForeground(new java.awt.Color(171, 171, 171));
-        }
-    }//GEN-LAST:event_txtAgeFocusLost
 
     private void txtAddressFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAddressFocusGained
         if (txtAddress.getText().equals("Address")) {
@@ -325,6 +282,57 @@ public class UserInformation extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtEmailFocusLost
 
+    private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
+        if (Arrays.equals(txtPassword.getPassword(), "Password".toCharArray())) {
+            txtPassword.setText("");
+            txtPassword.setForeground(new java.awt.Color(58,50,44));
+            txtPassword.setFont(new Font("Segoe UI", 0, 12));
+            txtPassword.setEchoChar('\u2022');
+        }
+    }//GEN-LAST:event_txtPasswordFocusGained
+
+    private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
+        if (Arrays.equals(txtPassword.getPassword(), "".toCharArray())) {
+            txtPassword.setText("Password");
+            txtPassword.setForeground(new java.awt.Color(171, 171, 171));
+            txtPassword.setFont(readexPro);
+            txtPassword.setEchoChar('\u0000');
+        }
+    }//GEN-LAST:event_txtPasswordFocusLost
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        String name = txtName.getText();
+        String address = txtAddress.getText();
+        String contact = txtConNo.getText();
+        String email = txtEmail.getText();
+        String password = new String(txtPassword.getPassword());
+        
+        try {
+            String query = "SELECT * FROM floramacatan.user WHERE email = ?";
+            PreparedStatement stmt = Database.sqlConnection.prepareStatement(query);
+            
+            stmt.setString(1, txtEmail.getText());
+
+            ResultSet rs = stmt.executeQuery();
+            
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "User already exists! Please use a different email.");
+            } else {
+                User newUser = new User(name, address, contact, email, password);
+                
+                User.addUser(name, address, contact, email, password, User.userId);
+                
+                JOptionPane.showMessageDialog(null, "Successfully registered!");
+                
+                new Login(email).setVisible(true);
+                
+                this.dispose();
+            }
+        } catch (SQLException e) {
+            System.out.print(e);
+        }
+    }//GEN-LAST:event_btnRegisterActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -342,28 +350,30 @@ public class UserInformation extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserInformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserInformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserInformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UserInformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserInformation().setVisible(true);
+                new Register().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnConfirm;
+    private javax.swing.JButton btnRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
@@ -372,9 +382,9 @@ public class UserInformation extends javax.swing.JFrame {
     private javax.swing.JPanel pnlHeadings;
     private javax.swing.JPanel pnlMain;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtConNo;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
+    private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
