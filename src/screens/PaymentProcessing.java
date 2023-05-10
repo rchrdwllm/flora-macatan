@@ -21,6 +21,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
     Font readexPro;
     Font readexProSemiBold;
     Font readexProTotal;
+    String selectedMethod;
     
     /**
      * Creates new form PaymentProcessing
@@ -737,7 +738,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         pnlPayment.repaint();
         pnlPayment.revalidate();
         
-        
+        selectedMethod = "gcash";
     }//GEN-LAST:event_btnGcashActionPerformed
 
     private void btnMayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMayaActionPerformed
@@ -745,6 +746,8 @@ public class PaymentProcessing extends javax.swing.JFrame {
         pnlPayment.add(pnlMobile);
         pnlPayment.repaint();
         pnlPayment.revalidate();
+        
+        selectedMethod = "maya";
     }//GEN-LAST:event_btnMayaActionPerformed
 
     private void btnPaypalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaypalActionPerformed
@@ -752,6 +755,8 @@ public class PaymentProcessing extends javax.swing.JFrame {
         pnlPayment.add(pnlPaypal);
         pnlPayment.repaint();
         pnlPayment.revalidate();
+        
+        selectedMethod = "paypal";
     }//GEN-LAST:event_btnPaypalActionPerformed
 
     private void btnVisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaActionPerformed
@@ -855,6 +860,8 @@ public class PaymentProcessing extends javax.swing.JFrame {
         pnlPayment.add(pnlCard);
         pnlPayment.repaint();
         pnlPayment.revalidate();
+        
+        selectedMethod = "card";
     }//GEN-LAST:event_btnCardActionPerformed
 
     private void btnCardStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnCardStateChanged
@@ -874,51 +881,64 @@ public class PaymentProcessing extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMayaStateChanged
 
     private void btnPayNowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayNowActionPerformed
-        String selectedMethod = "";
         String cardNumber = txtCardNum.getText();
         String expiry = txtExp.getText();
         String cvv = txtCVV.getText();
         String phoneNumber = txtMobile.getText();
         String email = txtEmail.getText();
-        char[] password = txtPassword.getPassword();
+        String password = new String(txtPassword.getPassword());
             
         if (btnCard.isSelected()) {
             selectedMethod = "card";
 
-            if (cardNumber.isEmpty() || expiry.isEmpty() || cvv.isEmpty()) {
+            if (cardNumber.equals("xxxx xxxx xxxx xxxx") || expiry.equals("mm / yy") || cvv.equals("xxx")) {
                 JOptionPane.showMessageDialog(null, "Please enter your payment details");
             } else {
                 new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
+                
+                new PaymentConfirmation().setVisible(true);
+            
+                this.dispose();
             }
         } else if (btnPaypal.isSelected()) {
             selectedMethod = "paypal";
             
-            if (cardNumber.isEmpty() || expiry.isEmpty() || cvv.isEmpty()) {
+            System.out.println(selectedMethod);
+            
+            if (email.equals("xxxx xxxx xxxx xxxx") || email.isEmpty() || password.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please enter your payment details");
             } else {
-                new Payment(selectedMethod, Reservation.totalPrice, email, password);
+                new Payment(selectedMethod, email, password, Reservation.totalPrice);
+                
+                new PaymentConfirmation().setVisible(true);
+            
+                this.dispose();
             }
         } else if (btnGcash.isSelected()) {
             selectedMethod = "gcash";
 
-            if (phoneNumber.isEmpty()) {
+            if (phoneNumber.isEmpty() || phoneNumber.equals("09xxxxxxxxx")) {
                 JOptionPane.showMessageDialog(null, "Please enter your payment details");
             } else {
                 new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
+                
+                new PaymentConfirmation().setVisible(true);
+            
+                this.dispose();
             }
         } else if (btnMaya.isSelected()) {
             selectedMethod = "maya";
 
-            if (phoneNumber.isEmpty()) {
+            if (phoneNumber.isEmpty() || phoneNumber.equals("09xxxxxxxxx")) {
                 JOptionPane.showMessageDialog(null, "Please enter your payment details");
             } else {
                 new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
+                
+                new PaymentConfirmation().setVisible(true);
+            
+                this.dispose();
             }
         }
-            
-        new PaymentConfirmation().setVisible(true);
-            
-        this.dispose();
     }//GEN-LAST:event_btnPayNowActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

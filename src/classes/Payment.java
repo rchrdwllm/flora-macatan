@@ -14,7 +14,7 @@ public class Payment {
     public static String type;
     public static int total;
     public static String email;
-    public static char[] password;
+    public static String password;
     public static String cardNumber;
     public static String phoneNumber;
     public static String paymentId;
@@ -27,7 +27,7 @@ public class Payment {
         Payment.paymentId = UUID.randomUUID().toString();
     }
     
-    public Payment(String type, int total, String email, char[] password) {
+    public Payment(String type, String email, String password, int total) {
         Payment.type = type;
         Payment.total = total;
         Payment.email = email;
