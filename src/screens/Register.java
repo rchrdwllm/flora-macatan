@@ -221,7 +221,7 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        new Home().setVisible(true);
+        new Welcome().setVisible(true);
         
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
@@ -320,7 +320,7 @@ public class Register extends javax.swing.JFrame {
             } else {
                 User newUser = new User(name, address, contact, email, password);
                 
-                User.addUser(name, address, contact, email, password, User.userId);
+                newUser.addToDb();
                 
                 JOptionPane.showMessageDialog(null, "Successfully registered!");
                 

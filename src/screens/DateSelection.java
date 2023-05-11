@@ -6,12 +6,8 @@ package screens;
 
 import java.awt.Font;
 import java.awt.Toolkit;
-import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.Date;
 import utilities.ReadexProLoader;
-import classes.Database;
 import classes.Reservation;
 
 /**
@@ -199,8 +195,7 @@ public class DateSelection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        Reservation reservation = new Reservation(this.checkIn, this.checkOut, this.roomSelection.selectedRoom, this.duration);
-        
+        new Reservation(this.checkIn, this.checkOut, this.roomSelection.selectedRoom, Long.toString(this.duration));
         new ReservationConfirmation(this).setVisible(true);
         
         this.setVisible(false);

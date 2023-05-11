@@ -4,6 +4,7 @@
  */
 package screens;
 
+import classes.Database;
 import java.awt.Font;
 import utilities.ReadexProLoader;
 import java.awt.Toolkit;
@@ -12,14 +13,15 @@ import java.awt.Toolkit;
  *
  * @author William
  */
-public class Dashboard extends javax.swing.JFrame {
+public class Welcome extends javax.swing.JFrame {
     Font readexPro;
     Font readexProSemiBold;
     
-    public Dashboard() {
+    public Welcome() {
         setIconImage();
         setFonts();
         initComponents();
+        initDb();
     }
 
     /**
@@ -39,10 +41,8 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         pnlBtns = new javax.swing.JPanel();
-        btnBook = new javax.swing.JButton();
-        btnSeeRooms = new javax.swing.JButton();
-        btnAbout = new javax.swing.JButton();
-        btnSignOut = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
+        btnRegister = new javax.swing.JButton();
         pnlCopyright = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -91,52 +91,34 @@ public class Dashboard extends javax.swing.JFrame {
 
         pnlBtns.setBackground(new java.awt.Color(255, 255, 255));
         pnlBtns.setBorder(javax.swing.BorderFactory.createEmptyBorder(32, 1, 32, 1));
-        pnlBtns.setLayout(new java.awt.GridLayout(4, 0, 0, 16));
+        pnlBtns.setLayout(new java.awt.GridLayout(2, 0, 0, 16));
 
-        btnBook.setBackground(new java.awt.Color(91, 55, 0));
-        btnBook.setFont(readexPro);
-        btnBook.setForeground(new java.awt.Color(255, 255, 255));
-        btnBook.setText("Book now!");
-        btnBook.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 1, 16, 1));
-        btnBook.setBorderPainted(false);
-        btnBook.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setBackground(new java.awt.Color(91, 55, 0));
+        btnLogin.setFont(readexPro);
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("Login");
+        btnLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 1, 16, 1));
+        btnLogin.setBorderPainted(false);
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBookActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
-        pnlBtns.add(btnBook);
+        pnlBtns.add(btnLogin);
 
-        btnSeeRooms.setBackground(new java.awt.Color(246, 246, 246));
-        btnSeeRooms.setFont(btnBook.getFont());
-        btnSeeRooms.setForeground(new java.awt.Color(58, 50, 44));
-        btnSeeRooms.setText("See our rooms");
-        btnSeeRooms.setToolTipText("");
-        btnSeeRooms.setBorder(btnBook.getBorder());
-        btnSeeRooms.setBorderPainted(false);
-        pnlBtns.add(btnSeeRooms);
-
-        btnAbout.setBackground(new java.awt.Color(246, 246, 246));
-        btnAbout.setFont(btnBook.getFont());
-        btnAbout.setForeground(new java.awt.Color(58, 50, 44));
-        btnAbout.setText("About us");
-        btnAbout.setToolTipText("");
-        btnAbout.setBorder(btnBook.getBorder());
-        btnAbout.setBorderPainted(false);
-        pnlBtns.add(btnAbout);
-
-        btnSignOut.setBackground(new java.awt.Color(246, 246, 246));
-        btnSignOut.setFont(btnBook.getFont());
-        btnSignOut.setForeground(new java.awt.Color(58, 50, 44));
-        btnSignOut.setText("Sign out");
-        btnSignOut.setToolTipText("");
-        btnSignOut.setBorder(btnBook.getBorder());
-        btnSignOut.setBorderPainted(false);
-        btnSignOut.addActionListener(new java.awt.event.ActionListener() {
+        btnRegister.setBackground(new java.awt.Color(246, 246, 246));
+        btnRegister.setFont(btnLogin.getFont());
+        btnRegister.setForeground(new java.awt.Color(58, 50, 44));
+        btnRegister.setText("Register");
+        btnRegister.setToolTipText("");
+        btnRegister.setBorder(btnLogin.getBorder());
+        btnRegister.setBorderPainted(false);
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSignOutActionPerformed(evt);
+                btnRegisterActionPerformed(evt);
             }
         });
-        pnlBtns.add(btnSignOut);
+        pnlBtns.add(btnRegister);
 
         mainPanel.add(pnlBtns, java.awt.BorderLayout.CENTER);
 
@@ -157,18 +139,22 @@ public class Dashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOutActionPerformed
-        new Home().setVisible(true);
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        new Register().setVisible(true);
         
         this.dispose();
-    }//GEN-LAST:event_btnSignOutActionPerformed
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
-    private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
-        new RoomSelection().setVisible(true);
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        new Login().setVisible(true);
         
         this.dispose();
-    }//GEN-LAST:event_btnBookActionPerformed
+    }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void initDb() {
+        Database database = new Database();
+    }
+    
     private void setIconImage() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../assets/Flora_Logo_20x20.png")));
     }
@@ -197,13 +183,13 @@ public class Dashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         
         try {
@@ -217,16 +203,14 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard().setVisible(true);
+                new Welcome().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAbout;
-    private javax.swing.JButton btnBook;
-    private javax.swing.JButton btnSeeRooms;
-    private javax.swing.JButton btnSignOut;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -6,8 +6,14 @@ package screens;
 
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.ResultSet;
 import utilities.ReadexProLoader;
 import classes.User;
+import classes.Reservation;
+import classes.Payment;
+import classes.Database;
 /**
  *
  * @author jejer
@@ -23,10 +29,70 @@ public class PaymentConfirmation extends javax.swing.JFrame {
         setIconImage();
         setFonts();
         initComponents();
+        populateData();
+    }
+    
+    public PaymentConfirmation(String reservationId) {
+        setIconImage();
+        setFonts();
+        initComponents();
+        fetchData(reservationId);
+    }
+    
+    private void fetchData(String reservationId) {
+        try {
+            String rQuery = "SELECT * FROM floramacatan.reservation WHERE reservationId = ?";
+            PreparedStatement rPstmt = Database.sqlConnection.prepareStatement(rQuery);
+            
+            rPstmt.setString(1, reservationId);
+            
+            ResultSet rRs = rPstmt.executeQuery();
+            
+            if (rRs.next()) {
+                String checkInDate = rRs.getString("checkInDate");
+                String checkOutDate = rRs.getString("checkOutDate");
+                String roomType = rRs.getString("roomType");
+                int totalPrice = rRs.getInt("totalPrice");
+                
+                lblRoom.setText(roomType.substring(0,1).toUpperCase() + roomType.substring(1).toLowerCase());
+                lblCheckIn.setText(checkInDate);
+                lblCheckOut.setText(checkOutDate);
+                lblTotal.setText("PHP " + totalPrice);
+                lblBookingNo.setText("#" + reservationId.substring(0, 7).toUpperCase());
+                
+                try {
+                    String pQuery = "SELECT * FROM floramacatan.payment WHERE reservationId = ?";
+                    PreparedStatement pPstmt = Database.sqlConnection.prepareStatement(pQuery);
+                    
+                    pPstmt.setString(1, reservationId);
+                    
+                    ResultSet pRs = pPstmt.executeQuery();
+                    
+                    if (pRs.next()) {
+                        String paymentMethod = pRs.getString("paymentMethod");
+                        
+                        lblPaymentMethod.setText(paymentMethod.substring(0, 1).toUpperCase() + paymentMethod.substring(1).toLowerCase());
+                    }
+                } catch (SQLException e) {
+                    System.out.println(e);
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
     
     private void setIconImage() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../assets/Flora_Logo_20x20.png")));
+    }
+    
+    private void populateData() {
+        lblPaymentMethod.setText(Payment.type.substring(0, 1).toUpperCase() + Payment.type.substring(1).toLowerCase());
+        lblRoom.setText(Reservation.roomType.substring(0,1).toUpperCase() + Reservation.roomType.substring(1).toLowerCase());
+        lblCheckIn.setText(Reservation.checkInDate);
+        lblCheckOut.setText(Reservation.checkOutDate);
+        lblTotal.setText("PHP " + Reservation.totalPrice);
+        lblBookingNo.setText("#" + Reservation.reservationId.substring(0, 7).toUpperCase());
     }
     
     private void setFonts() {
@@ -52,7 +118,7 @@ public class PaymentConfirmation extends javax.swing.JFrame {
         lblBookingNo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        lblName = new javax.swing.JLabel();
+        lblPaymentMethod = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lblRoom = new javax.swing.JLabel();
@@ -60,7 +126,7 @@ public class PaymentConfirmation extends javax.swing.JFrame {
         lblCheckIn = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        lblCheckIn2 = new javax.swing.JLabel();
+        lblCheckOut = new javax.swing.JLabel();
         pnlTotal = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
@@ -102,12 +168,12 @@ public class PaymentConfirmation extends javax.swing.JFrame {
 
         jLabel5.setFont(readexPro);
         jLabel5.setForeground(new java.awt.Color(171, 171, 171));
-        jLabel5.setText("Name");
+        jLabel5.setText("Payment method");
         pnlMain.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
 
-        lblName.setFont(readexPro);
-        lblName.setText("Lore Una");
-        pnlMain.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
+        lblPaymentMethod.setFont(readexPro);
+        lblPaymentMethod.setText("Card");
+        pnlMain.add(lblPaymentMethod, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
 
         lblEmail.setFont(readexPro);
         lblEmail.setText("4J");
@@ -133,7 +199,7 @@ public class PaymentConfirmation extends javax.swing.JFrame {
 
         jLabel9.setFont(readexPro);
         jLabel9.setForeground(new java.awt.Color(171, 171, 171));
-        jLabel9.setText("Check in");
+        jLabel9.setText("Check out");
         pnlMain.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, -1, -1));
 
         jLabel10.setFont(readexPro);
@@ -141,12 +207,12 @@ public class PaymentConfirmation extends javax.swing.JFrame {
         jLabel10.setText("Room no.");
         pnlMain.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, -1, -1));
 
-        lblCheckIn2.setFont(readexPro);
-        lblCheckIn2.setText("April 15, 2023");
-        pnlMain.add(lblCheckIn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, -1));
+        lblCheckOut.setFont(readexPro);
+        lblCheckOut.setText("April 15, 2023");
+        pnlMain.add(lblCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, -1));
 
         pnlTotal.setBackground(new java.awt.Color(255, 255, 255));
-        pnlTotal.setLayout(new java.awt.GridLayout());
+        pnlTotal.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel6.setFont(readexPro);
         jLabel6.setForeground(new java.awt.Color(171, 171, 171));
@@ -182,7 +248,7 @@ public class PaymentConfirmation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        new Dashboard().setVisible(true);
+        new Home().setVisible(true);
         
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
@@ -236,10 +302,10 @@ public class PaymentConfirmation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblBookingNo;
     private javax.swing.JLabel lblCheckIn;
-    private javax.swing.JLabel lblCheckIn2;
+    private javax.swing.JLabel lblCheckOut;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblImage;
-    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPaymentMethod;
     private javax.swing.JLabel lblRoom;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JPanel pnlMain;

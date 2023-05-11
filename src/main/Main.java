@@ -1,6 +1,6 @@
 package main;
 
-import screens.Home;
+import screens.Welcome;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,6 +13,6 @@ import screens.Home;
  */
 public class Main {
     public static void main(String[] args) {
-        Home.main(args);
+        Welcome.main(args);
     }
 }

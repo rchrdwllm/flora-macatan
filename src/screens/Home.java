@@ -4,7 +4,6 @@
  */
 package screens;
 
-import classes.Database;
 import java.awt.Font;
 import utilities.ReadexProLoader;
 import java.awt.Toolkit;
@@ -21,7 +20,6 @@ public class Home extends javax.swing.JFrame {
         setIconImage();
         setFonts();
         initComponents();
-        initDb();
     }
 
     /**
@@ -41,8 +39,9 @@ public class Home extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         pnlBtns = new javax.swing.JPanel();
-        btnLogin = new javax.swing.JButton();
-        btnRegister = new javax.swing.JButton();
+        btnBook = new javax.swing.JButton();
+        btnReservationLog = new javax.swing.JButton();
+        btnSignOut = new javax.swing.JButton();
         pnlCopyright = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -91,34 +90,48 @@ public class Home extends javax.swing.JFrame {
 
         pnlBtns.setBackground(new java.awt.Color(255, 255, 255));
         pnlBtns.setBorder(javax.swing.BorderFactory.createEmptyBorder(32, 1, 32, 1));
-        pnlBtns.setLayout(new java.awt.GridLayout(2, 0, 0, 16));
+        pnlBtns.setLayout(new java.awt.GridLayout(3, 0, 0, 16));
 
-        btnLogin.setBackground(new java.awt.Color(91, 55, 0));
-        btnLogin.setFont(readexPro);
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin.setText("Login");
-        btnLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 1, 16, 1));
-        btnLogin.setBorderPainted(false);
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+        btnBook.setBackground(new java.awt.Color(91, 55, 0));
+        btnBook.setFont(readexPro);
+        btnBook.setForeground(new java.awt.Color(255, 255, 255));
+        btnBook.setText("Book now!");
+        btnBook.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 1, 16, 1));
+        btnBook.setBorderPainted(false);
+        btnBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
+                btnBookActionPerformed(evt);
             }
         });
-        pnlBtns.add(btnLogin);
+        pnlBtns.add(btnBook);
 
-        btnRegister.setBackground(new java.awt.Color(246, 246, 246));
-        btnRegister.setFont(btnLogin.getFont());
-        btnRegister.setForeground(new java.awt.Color(58, 50, 44));
-        btnRegister.setText("Register");
-        btnRegister.setToolTipText("");
-        btnRegister.setBorder(btnLogin.getBorder());
-        btnRegister.setBorderPainted(false);
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+        btnReservationLog.setBackground(new java.awt.Color(246, 246, 246));
+        btnReservationLog.setFont(btnBook.getFont());
+        btnReservationLog.setForeground(new java.awt.Color(58, 50, 44));
+        btnReservationLog.setText("Reservation log");
+        btnReservationLog.setToolTipText("");
+        btnReservationLog.setBorder(btnBook.getBorder());
+        btnReservationLog.setBorderPainted(false);
+        btnReservationLog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
+                btnReservationLogActionPerformed(evt);
             }
         });
-        pnlBtns.add(btnRegister);
+        pnlBtns.add(btnReservationLog);
+
+        btnSignOut.setBackground(new java.awt.Color(246, 246, 246));
+        btnSignOut.setFont(btnBook.getFont());
+        btnSignOut.setForeground(new java.awt.Color(58, 50, 44));
+        btnSignOut.setText("Sign out");
+        btnSignOut.setToolTipText("");
+        btnSignOut.setBorder(btnBook.getBorder());
+        btnSignOut.setBorderPainted(false);
+        btnSignOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignOutActionPerformed(evt);
+            }
+        });
+        pnlBtns.add(btnSignOut);
 
         mainPanel.add(pnlBtns, java.awt.BorderLayout.CENTER);
 
@@ -139,22 +152,24 @@ public class Home extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        new Register().setVisible(true);
+    private void btnSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOutActionPerformed
+        new Welcome().setVisible(true);
         
         this.dispose();
-    }//GEN-LAST:event_btnRegisterActionPerformed
+    }//GEN-LAST:event_btnSignOutActionPerformed
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        new Login().setVisible(true);
+    private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
+        new RoomSelection().setVisible(true);
         
         this.dispose();
-    }//GEN-LAST:event_btnLoginActionPerformed
+    }//GEN-LAST:event_btnBookActionPerformed
 
-    private void initDb() {
-        Database database = new Database();
-    }
-    
+    private void btnReservationLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservationLogActionPerformed
+        new ReservationLog().setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnReservationLogActionPerformed
+
     private void setIconImage() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../assets/Flora_Logo_20x20.png")));
     }
@@ -209,8 +224,9 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnRegister;
+    private javax.swing.JButton btnBook;
+    private javax.swing.JButton btnReservationLog;
+    private javax.swing.JButton btnSignOut;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

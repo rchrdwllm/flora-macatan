@@ -38,7 +38,7 @@ public class User {
         User.userId = userId;
     }
     
-    public static void addUser(String name, String address, String contact, String email, String password, String userId) {
+    public void addToDb() {
         try {
             String st = "INSERT INTO user (name, address, contact, email, password, userId) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement pstmt = Database.sqlConnection.prepareStatement(st);
@@ -56,25 +56,5 @@ public class User {
         } catch (SQLException e) {
             System.out.println(e);
         }
-    }
-    
-    public User getDetails() {
-        return this;
-    }
-    
-    public void setName(String name) {
-        User.name = name;
-    }
-    
-    public void setAddress(String address) {
-        User.address = address;
-    }
-    
-    public void setContact(String contact) {
-        User.contact = contact;
-    }
-    
-    public void setEmail(String email) {
-        User.email = email;
     }
 }

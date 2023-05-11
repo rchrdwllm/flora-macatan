@@ -662,7 +662,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void populateData() {
-        lblNoDays.setText(Long.toString(Reservation.duration));
+        lblNoDays.setText(Reservation.duration);
         lblTotal.setText("PHP " + Reservation.totalPrice);
         lblBase.setText("PHP " + Reservation.basePrice);
         lblRoomType.setText(Reservation.roomType.substring(0,1).toUpperCase() + Reservation.roomType.substring(1).toLowerCase());
@@ -895,8 +895,10 @@ public class PaymentProcessing extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Please enter your payment details");
             } else {
                 new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
-                
                 new PaymentConfirmation().setVisible(true);
+                
+                Reservation.addToDb();
+                Payment.addToDb();
             
                 this.dispose();
             }
@@ -909,8 +911,10 @@ public class PaymentProcessing extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Please enter your payment details");
             } else {
                 new Payment(selectedMethod, email, password, Reservation.totalPrice);
-                
                 new PaymentConfirmation().setVisible(true);
+                
+                Reservation.addToDb();
+                Payment.addToDb();
             
                 this.dispose();
             }
@@ -921,8 +925,10 @@ public class PaymentProcessing extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Please enter your payment details");
             } else {
                 new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
-                
                 new PaymentConfirmation().setVisible(true);
+                
+                Reservation.addToDb();
+                Payment.addToDb();
             
                 this.dispose();
             }
@@ -933,8 +939,10 @@ public class PaymentProcessing extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Please enter your payment details");
             } else {
                 new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
-                
                 new PaymentConfirmation().setVisible(true);
+                
+                Reservation.addToDb();
+                Payment.addToDb();
             
                 this.dispose();
             }

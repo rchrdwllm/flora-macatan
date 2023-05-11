@@ -274,11 +274,6 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         lblEmail.setText(User.email);
         lblRoomType.setText(Reservation.roomType.substring(0,1).toUpperCase() + Reservation.roomType.substring(1).toLowerCase());
         
-        SimpleDateFormat formatter = new SimpleDateFormat("MMM dd yyyy");
-            
-        String formattedCheckIn = formatter.format(Reservation.checkInDate);
-        String formattedCheckOut = formatter.format(Reservation.checkOutDate);
-        
         int basePrice;
         String roomType = Reservation.roomType;
         
@@ -300,13 +295,13 @@ public class ReservationConfirmation extends javax.swing.JFrame {
                 break;
         }
         
-        int totalPrice = (int) Reservation.duration * basePrice;
+        int totalPrice = Integer.parseInt(Reservation.duration) * basePrice;
         
         Reservation.basePrice = basePrice;
         Reservation.totalPrice = totalPrice;
             
-        lblCheckIn.setText(formattedCheckIn);
-        lblCheckOut.setText(formattedCheckOut);
+        lblCheckIn.setText(Reservation.checkInDate);
+        lblCheckOut.setText(Reservation.checkOutDate);
         lblTotal.setText("PHP " + Integer.toString(totalPrice));
     }
     
