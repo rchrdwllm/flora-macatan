@@ -10,6 +10,7 @@ import utilities.ReadexProLoader;
 import classes.User;
 import classes.Reservation;
 import java.text.SimpleDateFormat;
+import java.util.Random;
 
 /**
  *
@@ -268,6 +269,17 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private String generateRoomNo() {
+        Random random = new Random();
+
+        char randomLetter = (char) (random.nextInt(26) + 'A');
+        int randomDigit = random.nextInt(10);
+
+        String randomString = String.valueOf(randomLetter) + randomDigit;
+
+        return randomString;
+    }
+    
     private void populateData() {
         lblName.setText(User.name);
         lblConNo.setText(User.contact);
@@ -299,6 +311,7 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         
         Reservation.basePrice = basePrice;
         Reservation.totalPrice = totalPrice;
+        Reservation.roomNo = generateRoomNo();
             
         lblCheckIn.setText(Reservation.checkInDate);
         lblCheckOut.setText(Reservation.checkOutDate);

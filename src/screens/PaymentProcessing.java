@@ -7,6 +7,7 @@ package screens;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.util.Random;
 import javax.swing.JOptionPane;
 import utilities.ReadexProLoader;
 import classes.Reservation;

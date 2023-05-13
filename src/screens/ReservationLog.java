@@ -68,7 +68,7 @@ public class ReservationLog extends javax.swing.JFrame {
                 for (int i = 1; i < tableCount; i++) {
                     String roomType = rs.getString("roomType");
                     
-                    columnData.add("#" + rs.getString("reservationId").substring(0, 7).toUpperCase());
+                    columnData.add(rs.getString("reservationId"));
                     columnData.add(rs.getString("checkInDate"));
                     columnData.add(rs.getString("checkOutDate"));
                     columnData.add(roomType.substring(0, 1).toUpperCase() + roomType.substring(1).toLowerCase());
@@ -117,7 +117,7 @@ public class ReservationLog extends javax.swing.JFrame {
         pnlMain.add(jLabel1, java.awt.BorderLayout.NORTH);
 
         pnlTable.setBackground(new java.awt.Color(255, 255, 255));
-        pnlTable.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 64, 64, 64));
+        pnlTable.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 64, 32, 64));
         pnlTable.setLayout(new java.awt.BorderLayout());
 
         tblReservations.setFont(readexPro);

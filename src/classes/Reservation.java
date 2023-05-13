@@ -19,6 +19,7 @@ public class Reservation {
     public static String checkOutDate;
     public static String roomType;
     public static String duration;
+    public static String roomNo;
     public static int basePrice = 0;
     public static int totalPrice = 0;
     public static String reservationId;
@@ -38,17 +39,18 @@ public class Reservation {
     
     public static void addToDb() {
         try {
-            String st = "INSERT INTO reservation (checkInDate, checkOutDate, roomType, duration, basePrice, totalPrice, userId, reservationId) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String st = "INSERT INTO reservation (checkInDate, checkOutDate, roomType, roomNo, duration, basePrice, totalPrice, userId, reservationId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pstmt = Database.sqlConnection.prepareStatement(st);
             
             pstmt.setString(1, checkInDate);
             pstmt.setString(2, checkOutDate);
             pstmt.setString(3, roomType);
-            pstmt.setString(4, duration);
-            pstmt.setInt(5, basePrice);
-            pstmt.setInt(6, totalPrice);
-            pstmt.setString(7, User.userId);
-            pstmt.setString(8, reservationId);
+            pstmt.setString(4, roomNo);
+            pstmt.setString(5, duration);
+            pstmt.setInt(6, basePrice);
+            pstmt.setInt(7, totalPrice);
+            pstmt.setString(8, User.userId);
+            pstmt.setString(9, reservationId);
             
             pstmt.executeUpdate();
             
