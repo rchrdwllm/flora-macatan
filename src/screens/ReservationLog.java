@@ -113,7 +113,7 @@ public class ReservationLog extends javax.swing.JFrame {
         jLabel1.setFont(readexProSemiBold);
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html>Your <font color=\"#5b3700\"> reservations</font></html>");
-        jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(64, 0, 64, 0));
+        jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(64, 0, 32, 0));
         pnlMain.add(jLabel1, java.awt.BorderLayout.NORTH);
 
         pnlTable.setBackground(new java.awt.Color(255, 255, 255));
@@ -183,7 +183,7 @@ public class ReservationLog extends javax.swing.JFrame {
           
         String reservationId = RecordTable.getValueAt(selectedRows,0).toString();
         
-        new PaymentConfirmation(reservationId).setVisible(true);
+        new PaymentConfirmation(this, reservationId).setVisible(true);
     }//GEN-LAST:event_tblReservationsMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -47,7 +47,7 @@
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Your &lt;font color=&quot;#5b3700&quot;&gt; reservations&lt;/font&gt;&lt;/html&gt;"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-                <EmptyBorder bottom="64" left="0" right="0" top="64"/>
+                <EmptyBorder bottom="32" left="0" right="0" top="64"/>
               </Border>
             </Property>
           </Properties>

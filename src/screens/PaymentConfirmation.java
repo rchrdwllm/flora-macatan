@@ -19,6 +19,7 @@ import classes.Database;
  * @author jejer
  */
 public class PaymentConfirmation extends javax.swing.JFrame {
+    ReservationLog reservationLog;
     Font readexPro;
     Font readexProSemiBold;
 
@@ -32,7 +33,9 @@ public class PaymentConfirmation extends javax.swing.JFrame {
         populateData();
     }
     
-    public PaymentConfirmation(String reservationId) {
+    public PaymentConfirmation(ReservationLog reservationLog, String reservationId) {
+        this.reservationLog = reservationLog;
+        
         setIconImage();
         setFonts();
         initComponents();
@@ -49,8 +52,6 @@ public class PaymentConfirmation extends javax.swing.JFrame {
             ResultSet rRs = rPstmt.executeQuery();
             
             if (rRs.next()) {
-                System.out.println(reservationId);
-                
                 String checkInDate = rRs.getString("checkInDate");
                 String checkOutDate = rRs.getString("checkOutDate");
                 String roomType = rRs.getString("roomType");
@@ -137,7 +138,7 @@ public class PaymentConfirmation extends javax.swing.JFrame {
         lblTotal = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Flora Macatan");
         setMinimumSize(new java.awt.Dimension(410, 627));
 
@@ -254,6 +255,10 @@ public class PaymentConfirmation extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         new Home().setVisible(true);
+        
+        if (this.reservationLog != null) {
+            this.reservationLog.dispose();
+        }
         
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
