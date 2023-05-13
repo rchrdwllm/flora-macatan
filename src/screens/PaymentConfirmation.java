@@ -49,12 +49,16 @@ public class PaymentConfirmation extends javax.swing.JFrame {
             ResultSet rRs = rPstmt.executeQuery();
             
             if (rRs.next()) {
+                System.out.println(reservationId);
+                
                 String checkInDate = rRs.getString("checkInDate");
                 String checkOutDate = rRs.getString("checkOutDate");
                 String roomType = rRs.getString("roomType");
+                String roomNo = rRs.getString("roomNo");
                 int totalPrice = rRs.getInt("totalPrice");
                 
                 lblRoom.setText(roomType.substring(0,1).toUpperCase() + roomType.substring(1).toLowerCase());
+                lblRoomNo.setText(roomNo);
                 lblCheckIn.setText(checkInDate);
                 lblCheckOut.setText(checkOutDate);
                 lblTotal.setText("PHP " + totalPrice);
@@ -69,7 +73,7 @@ public class PaymentConfirmation extends javax.swing.JFrame {
                     ResultSet pRs = pPstmt.executeQuery();
                     
                     if (pRs.next()) {
-                        String paymentMethod = pRs.getString("paymentMethod");
+                        String paymentMethod = pRs.getString("type");
                         
                         lblPaymentMethod.setText(paymentMethod.substring(0, 1).toUpperCase() + paymentMethod.substring(1).toLowerCase());
                     }
@@ -89,6 +93,7 @@ public class PaymentConfirmation extends javax.swing.JFrame {
     private void populateData() {
         lblPaymentMethod.setText(Payment.type.substring(0, 1).toUpperCase() + Payment.type.substring(1).toLowerCase());
         lblRoom.setText(Reservation.roomType.substring(0,1).toUpperCase() + Reservation.roomType.substring(1).toLowerCase());
+        lblRoomNo.setText(Reservation.roomNo);
         lblCheckIn.setText(Reservation.checkInDate);
         lblCheckOut.setText(Reservation.checkOutDate);
         lblTotal.setText("PHP " + Reservation.totalPrice);
@@ -119,7 +124,7 @@ public class PaymentConfirmation extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         lblPaymentMethod = new javax.swing.JLabel();
-        lblEmail = new javax.swing.JLabel();
+        lblRoomNo = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lblRoom = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -175,9 +180,9 @@ public class PaymentConfirmation extends javax.swing.JFrame {
         lblPaymentMethod.setText("Card");
         pnlMain.add(lblPaymentMethod, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
 
-        lblEmail.setFont(readexPro);
-        lblEmail.setText("4J");
-        pnlMain.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
+        lblRoomNo.setFont(readexPro);
+        lblRoomNo.setText("4J");
+        pnlMain.add(lblRoomNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
 
         jLabel7.setFont(readexPro);
         jLabel7.setForeground(new java.awt.Color(171, 171, 171));
@@ -303,10 +308,10 @@ public class PaymentConfirmation extends javax.swing.JFrame {
     private javax.swing.JLabel lblBookingNo;
     private javax.swing.JLabel lblCheckIn;
     private javax.swing.JLabel lblCheckOut;
-    private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblPaymentMethod;
     private javax.swing.JLabel lblRoom;
+    private javax.swing.JLabel lblRoomNo;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JPanel pnlMain;
     private javax.swing.JPanel pnlTotal;
