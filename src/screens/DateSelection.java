@@ -7,6 +7,7 @@ package screens;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import utilities.ReadexProLoader;
 import classes.Reservation;
 
@@ -19,6 +20,7 @@ public class DateSelection extends javax.swing.JFrame {
     Font readexPro;
     Font readexProSemiBold;
     long duration;
+    String errorMssg = "";
     
     public Date checkIn;
     public Date checkOut;
@@ -195,10 +197,14 @@ public class DateSelection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        new Reservation(this.checkIn, this.checkOut, this.roomSelection.selectedRoom, Long.toString(this.duration));
-        new ReservationConfirmation(this).setVisible(true);
-        
-        this.setVisible(false);
+        if (errorMssg.isEmpty()) {
+            new Reservation(this.checkIn, this.checkOut, this.roomSelection.selectedRoom, Long.toString(this.duration));
+            new ReservationConfirmation(this).setVisible(true);
+
+            this.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(null, errorMssg);
+        }
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void checkInDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_checkInDatePropertyChange
@@ -224,18 +230,26 @@ public class DateSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void calculateDateInterval() throws Exception {
-        Date date1 = checkInDate.getDate();
-        Date date2 = checkOutDate.getDate();
+        Date date1 = checkInDate.getDate() == null ? new Date() : checkInDate.getDate();
+        Date date2 = checkOutDate.getDate() == null ? new Date() : checkOutDate.getDate();
         
         if (date1 != null || date2 != null) {
-            long diffInMilliseconds = Math.abs(date2.getTime() - date1.getTime());
+            long diffInMilliseconds = (date2.getTime() - date1.getTime());
 
-            duration = diffInMilliseconds / (24 * 60 * 60 * 1000);
+            if (diffInMilliseconds < 0) {
+                errorMssg = "Selected date range is invalid.";
+                
+                JOptionPane.showMessageDialog(null, errorMssg);
+            } else {
+                errorMssg = "";
+                
+                duration = (diffInMilliseconds / (24 * 60 * 60 * 1000)) + 1;
             
-            lblDateDiff.setText(Long.toString(duration) + (duration != 1 ? " days" : " day"));
-            
-            this.checkIn = checkInDate.getDate();
-            this.checkOut = checkOutDate.getDate();
+                lblDateDiff.setText(Long.toString(duration) + (duration != 1 ? " days" : " day"));
+
+                this.checkIn = checkInDate.getDate();
+                this.checkOut = checkOutDate.getDate();
+            }
         }
     }
     
