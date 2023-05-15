@@ -140,7 +140,7 @@
                       <Color blue="2c" green="32" red="3a" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="Lore Una"/>
+                    <Property name="text" type="java.lang.String" value="Jane Doe"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -214,7 +214,7 @@
                       <Color blue="2c" green="32" red="3a" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="LoreUna@gmail.com"/>
+                    <Property name="text" type="java.lang.String" value="JaneDoe@gmail.com"/>
                   </Properties>
                 </Component>
               </SubComponents>

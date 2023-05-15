@@ -120,7 +120,7 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         lblName.setFont(readexPro);
         lblName.setForeground(new java.awt.Color(58, 50, 44));
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblName.setText("Lore Una");
+        lblName.setText("Jane Doe");
         pnlName.add(lblName);
 
         pnlDetails.add(pnlName);
@@ -152,7 +152,7 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         lblEmail.setFont(readexPro);
         lblEmail.setForeground(new java.awt.Color(58, 50, 44));
         lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblEmail.setText("LoreUna@gmail.com");
+        lblEmail.setText("JaneDoe@gmail.com");
         pnlEmail.add(lblEmail);
 
         pnlDetails.add(pnlEmail);
