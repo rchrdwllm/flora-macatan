@@ -82,7 +82,7 @@ public class Home extends javax.swing.JFrame {
         mainPanel.add(pnlHeadings, java.awt.BorderLayout.NORTH);
 
         pnlBtns.setBackground(new java.awt.Color(255, 255, 255));
-        pnlBtns.setBorder(javax.swing.BorderFactory.createEmptyBorder(32, 1, 32, 1));
+        pnlBtns.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 1, 32, 1));
         pnlBtns.setLayout(new java.awt.GridLayout(3, 0, 0, 16));
 
         btnBook.setBackground(new java.awt.Color(91, 55, 0));
