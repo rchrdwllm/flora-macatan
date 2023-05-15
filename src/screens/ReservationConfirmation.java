@@ -239,6 +239,7 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 32, 16, 32));
         btnBack.setBorderPainted(false);
+        btnBack.setFocusPainted(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -252,6 +253,7 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         btnPay.setText("Proceed to pay");
         btnPay.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 32, 16, 32));
         btnPay.setBorderPainted(false);
+        btnPay.setFocusPainted(false);
         btnPay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPayActionPerformed(evt);
@@ -338,7 +340,7 @@ public class ReservationConfirmation extends javax.swing.JFrame {
         ReadexProLoader loader = new ReadexProLoader();
         
         readexPro = loader.readexPro(12);
-        readexProSemiBold = loader.readexProSemiBold(18);
+        readexProSemiBold = loader.readexProSemiBold(24);
     }
     
     /**

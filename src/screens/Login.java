@@ -20,9 +20,10 @@ import classes.Database;
  * @author William
  */
 public class Login extends javax.swing.JFrame {
+
     Font readexPro;
     Font readexProSemiBold;
-    
+
     public User user;
 
     /**
@@ -33,8 +34,10 @@ public class Login extends javax.swing.JFrame {
         setFonts();
         initComponents();
         focus();
+        lblError.setVisible(false);
+        lblError.setText("");
     }
-    
+
     public Login(String email) {
         setIconImage();
         setFonts();
@@ -42,25 +45,25 @@ public class Login extends javax.swing.JFrame {
         setEmail(email);
         focus();
     }
-    
+
     private void setEmail(String email) {
         txtEmail.setText(email);
-        txtEmail.setForeground(new java.awt.Color(58,50,44));
+        txtEmail.setForeground(new java.awt.Color(58, 50, 44));
     }
-    
+
     private void focus() {
         pnlMain.requestFocus();
     }
-    
+
     private void setIconImage() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../assets/Flora_Logo_20x20.png")));
     }
-    
+
     private void setFonts() {
         ReadexProLoader loader = new ReadexProLoader();
-        
+
         readexPro = loader.readexPro(12);
-        readexProSemiBold = loader.readexProSemiBold(32);
+        readexProSemiBold = loader.readexProSemiBold(24);
     }
 
     /**
@@ -78,7 +81,9 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         pnlForms = new javax.swing.JPanel();
+        lblError = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
+        separator = new javax.swing.JPanel();
         txtPassword = new javax.swing.JPasswordField();
         pnlBtns = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
@@ -96,11 +101,13 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1.setFont(readexProSemiBold);
         jLabel1.setForeground(new java.awt.Color(58, 50, 44));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html><head><style>body { font-family: \"Readex Pro\"; font-weight: 700; }</style></head>Welcome <font color=\"#5B3700\">back!</font></html>");
         pnlHeadings.add(jLabel1);
 
         jLabel2.setFont(readexPro);
         jLabel2.setForeground(new java.awt.Color(171, 171, 171));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Provide your account information");
         pnlHeadings.add(jLabel2);
 
@@ -111,13 +118,26 @@ public class Login extends javax.swing.JFrame {
 
         pnlForms.setBackground(new java.awt.Color(255, 255, 255));
         pnlForms.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 192, 0, 192));
-        pnlForms.setLayout(new java.awt.GridLayout(2, 0, 0, 16));
+        pnlForms.setLayout(new javax.swing.BoxLayout(pnlForms, javax.swing.BoxLayout.PAGE_AXIS));
+
+        lblError.setFont(readexPro);
+        lblError.setForeground(new java.awt.Color(254, 74, 73));
+        lblError.setText("Invalid credentials!");
+        lblError.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblError.setAlignmentX(0.5F);
+        lblError.setMaximumSize(new java.awt.Dimension(295, 25));
+        lblError.setMinimumSize(new java.awt.Dimension(295, 25));
+        lblError.setPreferredSize(new java.awt.Dimension(295, 25));
+        pnlForms.add(lblError);
 
         txtEmail.setBackground(new java.awt.Color(246, 246, 246));
         txtEmail.setFont(readexPro);
         txtEmail.setForeground(new java.awt.Color(171, 171, 171));
         txtEmail.setText("Email");
         txtEmail.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(201, 201, 201), 1, true), javax.swing.BorderFactory.createEmptyBorder(16, 16, 16, 16)));
+        txtEmail.setMaximumSize(new java.awt.Dimension(300, 45));
+        txtEmail.setMinimumSize(new java.awt.Dimension(300, 45));
+        txtEmail.setPreferredSize(new java.awt.Dimension(300, 45));
         txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtEmailFocusGained(evt);
@@ -126,7 +146,18 @@ public class Login extends javax.swing.JFrame {
                 txtEmailFocusLost(evt);
             }
         });
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
         pnlForms.add(txtEmail);
+
+        separator.setBackground(new java.awt.Color(255, 255, 255));
+        separator.setMaximumSize(new java.awt.Dimension(300, 15));
+        separator.setMinimumSize(new java.awt.Dimension(300, 15));
+        separator.setPreferredSize(new java.awt.Dimension(300, 15));
+        pnlForms.add(separator);
 
         txtPassword.setBackground(new java.awt.Color(246, 246, 246));
         txtPassword.setFont(readexPro);
@@ -134,6 +165,9 @@ public class Login extends javax.swing.JFrame {
         txtPassword.setText("Password");
         txtPassword.setBorder(txtEmail.getBorder());
         txtPassword.setEchoChar('\u0000');
+        txtPassword.setMaximumSize(new java.awt.Dimension(300, 45));
+        txtPassword.setMinimumSize(new java.awt.Dimension(300, 45));
+        txtPassword.setPreferredSize(new java.awt.Dimension(300, 48));
         txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtPasswordFocusGained(evt);
@@ -148,15 +182,17 @@ public class Login extends javax.swing.JFrame {
 
         pnlBtns.setBackground(new java.awt.Color(255, 255, 255));
         pnlBtns.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 192, 64, 192));
-        pnlBtns.setLayout(new java.awt.GridLayout(1, 0, 16, 0));
+        pnlBtns.setLayout(new java.awt.GridLayout(1, 0, 15, 0));
 
         btnBack.setBackground(new java.awt.Color(246, 246, 246));
         btnBack.setFont(readexPro);
         btnBack.setForeground(new java.awt.Color(58, 50, 44));
         btnBack.setText("Back");
         btnBack.setToolTipText("");
+        btnBack.setAlignmentX(0.5F);
         btnBack.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 16, 16, 16));
         btnBack.setBorderPainted(false);
+        btnBack.setFocusPainted(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -168,8 +204,10 @@ public class Login extends javax.swing.JFrame {
         btnLogin.setFont(readexPro);
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
+        btnLogin.setAlignmentX(0.5F);
         btnLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 16, 16, 16));
         btnLogin.setBorderPainted(false);
+        btnLogin.setFocusPainted(false);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -187,14 +225,14 @@ public class Login extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         new Welcome().setVisible(true);
-        
+
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
         if (txtEmail.getText().equals("Email")) {
             txtEmail.setText("");
-            txtEmail.setForeground(new java.awt.Color(58,50,44));
+            txtEmail.setForeground(new java.awt.Color(58, 50, 44));
         }
     }//GEN-LAST:event_txtEmailFocusGained
 
@@ -208,7 +246,7 @@ public class Login extends javax.swing.JFrame {
     private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
         if (Arrays.equals(txtPassword.getPassword(), "Password".toCharArray())) {
             txtPassword.setText("");
-            txtPassword.setForeground(new java.awt.Color(58,50,44));
+            txtPassword.setForeground(new java.awt.Color(58, 50, 44));
             txtPassword.setFont(new Font("Segoe UI", 0, 12));
             txtPassword.setEchoChar('\u2022');
         }
@@ -226,38 +264,44 @@ public class Login extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String email = txtEmail.getText();
         String password = new String(txtPassword.getPassword());
-        
+
         try {
             String query = "SELECT * FROM floramacatan.user WHERE email = ?";
             PreparedStatement stmt = Database.sqlConnection.prepareStatement(query);
-            
+
             stmt.setString(1, txtEmail.getText());
 
             ResultSet rs = stmt.executeQuery();
-            
+
             if (rs.next()) {
                 String name = rs.getString("name");
                 String address = rs.getString("address");
                 String contact = rs.getString("contact");
                 String userId = rs.getString("userId");
                 String dbPassword = rs.getString("password");
-                
+
                 if (password.equals(dbPassword)) {
                     new User(name, address, contact, email, password, userId);
-                    
+
                     new Home().setVisible(true);
-                    
+
                     this.dispose();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Invalid credentials");
+                    lblError.setVisible(true);
+                    lblError.setText("Invalid credentials!");
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Invalid credentials");
+                lblError.setVisible(true);
+                lblError.setText("Invalid credentials!");
             }
         } catch (SQLException e) {
             System.out.print(e);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,10 +344,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblError;
     private javax.swing.JPanel pnlBtns;
     private javax.swing.JPanel pnlForms;
     private javax.swing.JPanel pnlHeadings;
     private javax.swing.JPanel pnlMain;
+    private javax.swing.JPanel separator;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables

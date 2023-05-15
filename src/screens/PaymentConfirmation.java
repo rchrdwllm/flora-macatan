@@ -144,78 +144,79 @@ public class PaymentConfirmation extends javax.swing.JFrame {
 
         pnlMain.setBackground(new java.awt.Color(255, 255, 255));
         pnlMain.setBorder(javax.swing.BorderFactory.createEmptyBorder(224, 256, 224, 256));
-        pnlMain.setMinimumSize(new java.awt.Dimension(410, 627));
-        pnlMain.setPreferredSize(new java.awt.Dimension(410, 627));
+        pnlMain.setMinimumSize(new java.awt.Dimension(410, 663));
+        pnlMain.setPreferredSize(new java.awt.Dimension(410, 663));
         pnlMain.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(readexPro);
         jLabel2.setForeground(new java.awt.Color(171, 171, 171));
-        jLabel2.setText("<html><p>We'll be sending you an email confirmation to <b>" + User.email + "</b> shortly.</p></html>");
-        pnlMain.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 260, 42));
+        jLabel2.setText("<html><center><p>We'll be sending you an email confirmation to <b>" + User.email + "</b> shortly.<br><br>You can check your reservations in the reservation log.</p></html>");
+        pnlMain.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 212, 260, 80));
 
         jLabel1.setBackground(new java.awt.Color(88, 96, 106));
         jLabel1.setFont(readexProSemiBold);
         jLabel1.setForeground(new java.awt.Color(58, 50, 44));
         jLabel1.setText("<html><head><style>body { font-family: \"Readex Pro\"; font-weight: 700; }</style></head>Booking <font color=\"#5B3700\">confirmed!</font></html>");
-        pnlMain.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
+        pnlMain.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
 
         lblImage.setFont(readexPro);
         lblImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/key-checkmark.png"))); // NOI18N
-        pnlMain.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 100, 100));
+        lblImage.setAlignmentX(0.5F);
+        pnlMain.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 100, 100));
 
         lblBookingNo.setFont(readexPro);
         lblBookingNo.setText("#4D5K98L");
-        pnlMain.add(lblBookingNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
+        pnlMain.add(lblBookingNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, -1, -1));
 
         jLabel4.setFont(readexPro);
         jLabel4.setForeground(new java.awt.Color(171, 171, 171));
         jLabel4.setText("Booking no.");
-        pnlMain.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, -1));
+        pnlMain.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, -1, -1));
 
         jLabel5.setFont(readexPro);
         jLabel5.setForeground(new java.awt.Color(171, 171, 171));
         jLabel5.setText("Payment method");
-        pnlMain.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
+        pnlMain.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
 
         lblPaymentMethod.setFont(readexPro);
         lblPaymentMethod.setText("Card");
-        pnlMain.add(lblPaymentMethod, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
+        pnlMain.add(lblPaymentMethod, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, -1, -1));
 
         lblRoomNo.setFont(readexPro);
         lblRoomNo.setText("4J");
-        pnlMain.add(lblRoomNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
+        pnlMain.add(lblRoomNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, -1, -1));
 
         jLabel7.setFont(readexPro);
         jLabel7.setForeground(new java.awt.Color(171, 171, 171));
         jLabel7.setText("Room");
-        pnlMain.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, -1, -1));
+        pnlMain.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, -1, -1));
 
         lblRoom.setFont(readexPro);
         lblRoom.setText("Suite");
-        pnlMain.add(lblRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, -1, -1));
+        pnlMain.add(lblRoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, -1, -1));
 
         jLabel8.setFont(readexPro);
         jLabel8.setForeground(new java.awt.Color(171, 171, 171));
         jLabel8.setText("Check in");
-        pnlMain.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
+        pnlMain.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, -1, -1));
 
         lblCheckIn.setFont(readexPro);
         lblCheckIn.setText("April 5, 2023");
-        pnlMain.add(lblCheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, -1, -1));
+        pnlMain.add(lblCheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, -1, -1));
 
         jLabel9.setFont(readexPro);
         jLabel9.setForeground(new java.awt.Color(171, 171, 171));
         jLabel9.setText("Check out");
-        pnlMain.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, -1, -1));
+        pnlMain.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, -1, -1));
 
         jLabel10.setFont(readexPro);
         jLabel10.setForeground(new java.awt.Color(171, 171, 171));
         jLabel10.setText("Room no.");
-        pnlMain.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, -1, -1));
+        pnlMain.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, -1, -1));
 
         lblCheckOut.setFont(readexPro);
         lblCheckOut.setText("April 15, 2023");
-        pnlMain.add(lblCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, -1));
+        pnlMain.add(lblCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, -1, -1));
 
         pnlTotal.setBackground(new java.awt.Color(255, 255, 255));
         pnlTotal.setLayout(new java.awt.GridLayout(1, 0));
@@ -232,7 +233,7 @@ public class PaymentConfirmation extends javax.swing.JFrame {
         lblTotal.setText("PHP 50,000");
         pnlTotal.add(lblTotal);
 
-        pnlMain.add(pnlTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 250, 40));
+        pnlMain.add(pnlTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, 250, 40));
 
         btnBack.setBackground(new java.awt.Color(91, 55, 0));
         btnBack.setFont(readexPro);
@@ -245,7 +246,7 @@ public class PaymentConfirmation extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        pnlMain.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 250, -1));
+        pnlMain.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 570, 250, -1));
 
         getContentPane().add(pnlMain, java.awt.BorderLayout.CENTER);
 

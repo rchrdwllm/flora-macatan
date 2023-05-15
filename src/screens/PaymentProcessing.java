@@ -18,12 +18,13 @@ import classes.Payment;
  * @author jejer
  */
 public class PaymentProcessing extends javax.swing.JFrame {
+
     ReservationConfirmation reservationConfirmation;
     Font readexPro;
     Font readexProSemiBold;
     Font readexProTotal;
     String selectedMethod;
-    
+
     /**
      * Creates new form PaymentProcessing
      */
@@ -32,19 +33,23 @@ public class PaymentProcessing extends javax.swing.JFrame {
         setFonts();
         initComponents();
         populateData();
-        
+
         btnCard.setSelected(true);
+        lblError.setVisible(false);
+        lblError.setText("");
     }
-    
+
     public PaymentProcessing(ReservationConfirmation reservationConfirmation) {
         this.reservationConfirmation = reservationConfirmation;
-        
+
         setIconImage();
         setFonts();
         initComponents();
         populateData();
-        
+
         btnCard.setSelected(true);
+         lblError.setVisible(false);
+        lblError.setText("");
     }
 
     /**
@@ -79,6 +84,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         pnlPaymentMethod = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        lblError = new javax.swing.JLabel();
         pnlPMButtons = new javax.swing.JPanel();
         btnCard = new javax.swing.JToggleButton();
         btnPaypal = new javax.swing.JToggleButton();
@@ -90,8 +96,11 @@ public class PaymentProcessing extends javax.swing.JFrame {
         lblCardType = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnVisa = new javax.swing.JRadioButton();
+        logoVisa = new javax.swing.JLabel();
         btnMtrcd = new javax.swing.JRadioButton();
+        logoMtrcrd = new javax.swing.JLabel();
         btnAmex = new javax.swing.JRadioButton();
+        logoAmex = new javax.swing.JLabel();
         lblNum = new javax.swing.JLabel();
         txtCardNum = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
@@ -135,7 +144,8 @@ public class PaymentProcessing extends javax.swing.JFrame {
         lblRoom.setText("Room");
         pnlHeadings.add(lblRoom);
 
-        lblRoomType.setFont(readexPro);
+        lblRoomType.setFont(readexProSemiBold
+        );
         lblRoomType.setForeground(new java.awt.Color(91, 55, 0));
         lblRoomType.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRoomType.setText("Standard");
@@ -226,7 +236,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         jLabel2.setText("<html>Finalize your<font color=\"#5b3700\"> transaction</font></html>");
 
         pnlPaymentMethod.setBackground(new java.awt.Color(255, 255, 255));
-        pnlPaymentMethod.setLayout(new java.awt.BorderLayout());
+        pnlPaymentMethod.setLayout(new java.awt.BorderLayout(0, 5));
 
         jLabel1.setFont(readexPro);
         jLabel1.setForeground(new java.awt.Color(125, 124, 131));
@@ -235,6 +245,16 @@ public class PaymentProcessing extends javax.swing.JFrame {
         jLabel1.setPreferredSize(new java.awt.Dimension(154, 20));
         jLabel1.setRequestFocusEnabled(false);
         pnlPaymentMethod.add(jLabel1, java.awt.BorderLayout.NORTH);
+
+        lblError.setFont(readexPro);
+        lblError.setForeground(new java.awt.Color(254, 74, 73));
+        lblError.setText("Please enter your payment details");
+        lblError.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblError.setAlignmentX(0.5F);
+        lblError.setMaximumSize(new java.awt.Dimension(295, 25));
+        lblError.setMinimumSize(new java.awt.Dimension(295, 25));
+        lblError.setPreferredSize(new java.awt.Dimension(295, 25));
+        pnlPaymentMethod.add(lblError, java.awt.BorderLayout.CENTER);
 
         pnlPMButtons.setBackground(new java.awt.Color(255, 255, 255));
         pnlPMButtons.setPreferredSize(new java.awt.Dimension(600, 55));
@@ -266,7 +286,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         PaymentMethods.add(btnPaypal);
         btnPaypal.setFont(readexPro);
         btnPaypal.setForeground(new java.awt.Color(58, 50, 44));
-        btnPaypal.setText("PayPal");
+        btnPaypal.setIcon(new javax.swing.ImageIcon(getClass().getResource("../assets/paypal.png")));
         btnPaypal.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 8, 0, 8));
         btnPaypal.setBorderPainted(false);
         btnPaypal.setContentAreaFilled(false);
@@ -288,7 +308,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         PaymentMethods.add(btnGcash);
         btnGcash.setFont(readexPro);
         btnGcash.setForeground(new java.awt.Color(58, 50, 44));
-        btnGcash.setText("GCash");
+        btnGcash.setIcon(new javax.swing.ImageIcon(getClass().getResource("../assets/gcash.png")));
         btnGcash.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 8, 0, 8));
         btnGcash.setBorderPainted(false);
         btnGcash.setContentAreaFilled(false);
@@ -310,7 +330,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         PaymentMethods.add(btnMaya);
         btnMaya.setFont(readexPro);
         btnMaya.setForeground(new java.awt.Color(58, 50, 44));
-        btnMaya.setText("Maya");
+        btnMaya.setIcon(new javax.swing.ImageIcon(getClass().getResource("../assets/maya.png")));
         btnMaya.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 8, 0, 8));
         btnMaya.setBorderPainted(false);
         btnMaya.setContentAreaFilled(false);
@@ -348,7 +368,6 @@ public class PaymentProcessing extends javax.swing.JFrame {
         CardType.add(btnVisa);
         btnVisa.setFont(readexPro);
         btnVisa.setSelected(true);
-        btnVisa.setText("Visa");
         btnVisa.setFocusPainted(false);
         btnVisa.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -362,11 +381,13 @@ public class PaymentProcessing extends javax.swing.JFrame {
         });
         jPanel3.add(btnVisa);
 
+        logoVisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("../assets/visa.png")));
+        jPanel3.add(logoVisa);
+
         btnMtrcd.setBackground(new java.awt.Color(255, 255, 255));
         CardType.add(btnMtrcd);
         btnMtrcd.setFont(readexPro);
         btnMtrcd.setForeground(new java.awt.Color(125, 124, 131));
-        btnMtrcd.setText("Mastercard");
         btnMtrcd.setFocusPainted(false);
         btnMtrcd.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -380,11 +401,13 @@ public class PaymentProcessing extends javax.swing.JFrame {
         });
         jPanel3.add(btnMtrcd);
 
+        logoMtrcrd.setIcon(new javax.swing.ImageIcon(getClass().getResource("../assets/mc.png")));
+        jPanel3.add(logoMtrcrd);
+
         btnAmex.setBackground(new java.awt.Color(255, 255, 255));
         CardType.add(btnAmex);
         btnAmex.setFont(readexPro);
         btnAmex.setForeground(new java.awt.Color(125, 124, 131));
-        btnAmex.setText("American Express");
         btnAmex.setFocusPainted(false);
         btnAmex.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -397,6 +420,9 @@ public class PaymentProcessing extends javax.swing.JFrame {
             }
         });
         jPanel3.add(btnAmex);
+
+        logoAmex.setIcon(new javax.swing.ImageIcon(getClass().getResource("../assets/amex.png")));
+        jPanel3.add(logoAmex);
 
         pnlCardType.add(jPanel3, java.awt.BorderLayout.SOUTH);
 
@@ -483,14 +509,14 @@ public class PaymentProcessing extends javax.swing.JFrame {
                         .addGroup(pnlCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNum)
                             .addComponent(pnlCardType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 352, Short.MAX_VALUE))
+                        .addGap(0, 517, Short.MAX_VALUE))
                     .addComponent(txtCardNum, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap())
         );
         pnlCardLayout.setVerticalGroup(
             pnlCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCardLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(7, Short.MAX_VALUE)
                 .addComponent(pnlCardType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblNum)
@@ -546,7 +572,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPaypalLayout.createSequentialGroup()
                         .addGroup(pnlPaypalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE))
+                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         pnlPaypalLayout.setVerticalGroup(
@@ -596,7 +622,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
                         .addComponent(lblNum12)
                         .addGap(222, 222, 222))
                     .addGroup(pnlMobileLayout.createSequentialGroup()
-                        .addComponent(txtMobile, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
+                        .addComponent(txtMobile, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         pnlMobileLayout.setVerticalGroup(
@@ -627,11 +653,11 @@ public class PaymentProcessing extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlPayment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlPaymentMethod, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlPayment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -644,12 +670,12 @@ public class PaymentProcessing extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlPaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlPaymentMethod, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(pnlPayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBack)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pnlPayment.getAccessibleContext().setAccessibleName("");
@@ -666,79 +692,79 @@ public class PaymentProcessing extends javax.swing.JFrame {
         lblNoDays.setText(Reservation.duration);
         lblTotal.setText("PHP " + Reservation.totalPrice);
         lblBase.setText("PHP " + Reservation.basePrice);
-        lblRoomType.setText(Reservation.roomType.substring(0,1).toUpperCase() + Reservation.roomType.substring(1).toLowerCase());
+        lblRoomType.setText(Reservation.roomType.substring(0, 1).toUpperCase() + Reservation.roomType.substring(1).toLowerCase());
     }
-    
+
     private void setIconImage() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../assets/Flora_Logo_20x20.png")));
     }
-    
+
     private void setFonts() {
         ReadexProLoader loader = new ReadexProLoader();
-        
+
         readexPro = loader.readexPro(12);
-        readexProSemiBold = loader.readexProSemiBold(18);
+        readexProSemiBold = loader.readexProSemiBold(24);
         readexProTotal = loader.readexPro(16);
     }
-    
+
     private void setPaymentBtnColors() {
         if (btnCard.isSelected()) {
-            btnCard.setBackground(new java.awt.Color(95, 55,38));
-            btnCard.setForeground(new java.awt.Color(255, 255,255));
-            
+            btnCard.setBackground(new java.awt.Color(95, 55, 38));
+            btnCard.setForeground(new java.awt.Color(255, 255, 255));
+
             btnPaypal.setBackground(new java.awt.Color(246, 246, 246));
-            btnPaypal.setForeground(new java.awt.Color(58,50,44));
-            
+            btnPaypal.setForeground(new java.awt.Color(58, 50, 44));
+
             btnGcash.setBackground(new java.awt.Color(246, 246, 246));
-            btnGcash.setForeground(new java.awt.Color(58,50,44));
-            
+            btnGcash.setForeground(new java.awt.Color(58, 50, 44));
+
             btnMaya.setBackground(new java.awt.Color(246, 246, 246));
-            btnMaya.setForeground(new java.awt.Color(58,50,44));
+            btnMaya.setForeground(new java.awt.Color(58, 50, 44));
         } else if (btnPaypal.isSelected()) {
-            btnPaypal.setBackground(new java.awt.Color(95, 55,38));
-            btnPaypal.setForeground(new java.awt.Color(255, 255,255));
-            
+            btnPaypal.setBackground(new java.awt.Color(95, 55, 38));
+            btnPaypal.setForeground(new java.awt.Color(255, 255, 255));
+
             btnCard.setBackground(new java.awt.Color(246, 246, 246));
-            btnCard.setForeground(new java.awt.Color(58,50,44));
-            
+            btnCard.setForeground(new java.awt.Color(58, 50, 44));
+
             btnGcash.setBackground(new java.awt.Color(246, 246, 246));
-            btnGcash.setForeground(new java.awt.Color(58,50,44));
-            
+            btnGcash.setForeground(new java.awt.Color(58, 50, 44));
+
             btnMaya.setBackground(new java.awt.Color(246, 246, 246));
-            btnMaya.setForeground(new java.awt.Color(58,50,44));
+            btnMaya.setForeground(new java.awt.Color(58, 50, 44));
         } else if (btnGcash.isSelected()) {
-            btnGcash.setBackground(new java.awt.Color(95, 55,38));
-            btnGcash.setForeground(new java.awt.Color(255, 255,255));
-            
+            btnGcash.setBackground(new java.awt.Color(95, 55, 38));
+            btnGcash.setForeground(new java.awt.Color(255, 255, 255));
+
             btnCard.setBackground(new java.awt.Color(246, 246, 246));
-            btnCard.setForeground(new java.awt.Color(58,50,44));
-            
+            btnCard.setForeground(new java.awt.Color(58, 50, 44));
+
             btnPaypal.setBackground(new java.awt.Color(246, 246, 246));
-            btnPaypal.setForeground(new java.awt.Color(58,50,44));
-            
+            btnPaypal.setForeground(new java.awt.Color(58, 50, 44));
+
             btnMaya.setBackground(new java.awt.Color(246, 246, 246));
-            btnMaya.setForeground(new java.awt.Color(58,50,44));
+            btnMaya.setForeground(new java.awt.Color(58, 50, 44));
         } else if (btnMaya.isSelected()) {
-            btnMaya.setBackground(new java.awt.Color(95, 55,38));
-            btnMaya.setForeground(new java.awt.Color(255, 255,255));
-            
+            btnMaya.setBackground(new java.awt.Color(95, 55, 38));
+            btnMaya.setForeground(new java.awt.Color(255, 255, 255));
+
             btnCard.setBackground(new java.awt.Color(246, 246, 246));
-            btnCard.setForeground(new java.awt.Color(58,50,44));
-            
+            btnCard.setForeground(new java.awt.Color(58, 50, 44));
+
             btnPaypal.setBackground(new java.awt.Color(246, 246, 246));
-            btnPaypal.setForeground(new java.awt.Color(58,50,44));
-            
+            btnPaypal.setForeground(new java.awt.Color(58, 50, 44));
+
             btnGcash.setBackground(new java.awt.Color(246, 246, 246));
-            btnGcash.setForeground(new java.awt.Color(58,50,44));
+            btnGcash.setForeground(new java.awt.Color(58, 50, 44));
         }
     }
-    
+
     private void btnGcashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGcashActionPerformed
         pnlPayment.removeAll();
         pnlPayment.add(pnlMobile);
         pnlPayment.repaint();
         pnlPayment.revalidate();
-        
+
         selectedMethod = "gcash";
     }//GEN-LAST:event_btnGcashActionPerformed
 
@@ -747,7 +773,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         pnlPayment.add(pnlMobile);
         pnlPayment.repaint();
         pnlPayment.revalidate();
-        
+
         selectedMethod = "maya";
     }//GEN-LAST:event_btnMayaActionPerformed
 
@@ -756,7 +782,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         pnlPayment.add(pnlPaypal);
         pnlPayment.repaint();
         pnlPayment.revalidate();
-        
+
         selectedMethod = "paypal";
     }//GEN-LAST:event_btnPaypalActionPerformed
 
@@ -861,7 +887,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
         pnlPayment.add(pnlCard);
         pnlPayment.repaint();
         pnlPayment.revalidate();
-        
+
         selectedMethod = "card";
     }//GEN-LAST:event_btnCardActionPerformed
 
@@ -888,63 +914,68 @@ public class PaymentProcessing extends javax.swing.JFrame {
         String phoneNumber = txtMobile.getText();
         String email = txtEmail.getText();
         String password = new String(txtPassword.getPassword());
-            
+
         if (btnCard.isSelected()) {
             selectedMethod = "card";
 
             if (cardNumber.equals("xxxx xxxx xxxx xxxx") || expiry.equals("mm / yy") || cvv.equals("xxx")) {
-                JOptionPane.showMessageDialog(null, "Please enter your payment details");
+                lblError.setVisible(true);
+                lblError.setText("Please enter your payment details");
+                //JOptionPane.showMessageDialog(null, "Please enter your payment details");
             } else {
                 new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
                 new PaymentConfirmation().setVisible(true);
-                
+
                 Reservation.addToDb();
                 Payment.addToDb();
-            
+
                 this.dispose();
             }
         } else if (btnPaypal.isSelected()) {
             selectedMethod = "paypal";
-            
+
             System.out.println(selectedMethod);
-            
+
             if (email.equals("xxxx xxxx xxxx xxxx") || email.isEmpty() || password.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please enter your payment details");
+                lblError.setVisible(true);
+                lblError.setText("Please enter your payment details");
             } else {
                 new Payment(selectedMethod, email, password, Reservation.totalPrice);
                 new PaymentConfirmation().setVisible(true);
-                
+
                 Reservation.addToDb();
                 Payment.addToDb();
-            
+
                 this.dispose();
             }
         } else if (btnGcash.isSelected()) {
             selectedMethod = "gcash";
 
             if (phoneNumber.isEmpty() || phoneNumber.equals("09xxxxxxxxx")) {
-                JOptionPane.showMessageDialog(null, "Please enter your payment details");
+                lblError.setVisible(true);
+                lblError.setText("Please enter your payment details");
             } else {
                 new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
                 new PaymentConfirmation().setVisible(true);
-                
+
                 Reservation.addToDb();
                 Payment.addToDb();
-            
+
                 this.dispose();
             }
         } else if (btnMaya.isSelected()) {
             selectedMethod = "maya";
 
             if (phoneNumber.isEmpty() || phoneNumber.equals("09xxxxxxxxx")) {
-                JOptionPane.showMessageDialog(null, "Please enter your payment details");
+                lblError.setVisible(true);
+                lblError.setText("Please enter your payment details");
             } else {
                 new Payment(selectedMethod, Reservation.totalPrice, cardNumber, phoneNumber);
                 new PaymentConfirmation().setVisible(true);
-                
+
                 Reservation.addToDb();
                 Payment.addToDb();
-            
+
                 this.dispose();
             }
         }
@@ -952,10 +983,10 @@ public class PaymentProcessing extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         this.reservationConfirmation.setVisible(true);
-        
+
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
-    
+
     /**
      * @param args the command line arguments
      */
@@ -1026,6 +1057,7 @@ public class PaymentProcessing extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JLabel lblBase;
     private javax.swing.JLabel lblCardType;
+    private javax.swing.JLabel lblError;
     private javax.swing.JLabel lblNoDays;
     private javax.swing.JLabel lblNum;
     private javax.swing.JLabel lblNum1;
@@ -1036,6 +1068,9 @@ public class PaymentProcessing extends javax.swing.JFrame {
     private javax.swing.JLabel lblRoom;
     private javax.swing.JLabel lblRoomType;
     private javax.swing.JLabel lblTotal;
+    private javax.swing.JLabel logoAmex;
+    private javax.swing.JLabel logoMtrcrd;
+    private javax.swing.JLabel logoVisa;
     private javax.swing.JPanel pnlCard;
     private javax.swing.JPanel pnlCardType;
     private javax.swing.JPanel pnlDetails;
