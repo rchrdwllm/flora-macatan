@@ -54,6 +54,8 @@ public class DateSelection extends javax.swing.JFrame {
         mainPanel = new javax.swing.JPanel();
         pnlHeading = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         pnlDates = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         checkInDate = new com.toedter.calendar.JDateChooser();
@@ -77,23 +79,34 @@ public class DateSelection extends javax.swing.JFrame {
         mainPanel.setLayout(new java.awt.BorderLayout());
 
         pnlHeading.setBackground(new java.awt.Color(255, 255, 255));
-        pnlHeading.setLayout(new java.awt.BorderLayout());
+        pnlHeading.setLayout(new javax.swing.BoxLayout(pnlHeading, javax.swing.BoxLayout.PAGE_AXIS));
 
         jLabel1.setFont(readexProSemiBold);
         jLabel1.setForeground(new java.awt.Color(58, 50, 44));
-        jLabel1.setText("<html><head><style>body { font-family: \"Readex Pro\"; font-weight: 700; }</style></head>When would you like to <font color=\"#5B3700\">stay?</font></html>");
-        pnlHeading.add(jLabel1, java.awt.BorderLayout.CENTER);
+        jLabel1.setText("<html><head><style>body { font-family: \"Readex Pro\"; font-weight: 700; }</style></head><font color=\"#5B3700\">Dates</font></html>");
+        pnlHeading.add(jLabel1);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setAlignmentX(0.0F);
+        jPanel6.setMaximumSize(new java.awt.Dimension(100, 6));
+        jPanel6.setMinimumSize(new java.awt.Dimension(100, 6));
+        jPanel6.setPreferredSize(new java.awt.Dimension(100, 6));
+        pnlHeading.add(jPanel6);
+
+        jLabel2.setFont(readexPro);
+        jLabel2.setForeground(new java.awt.Color(125, 124, 131));
+        jLabel2.setText("When would you like to stay?");
+        pnlHeading.add(jLabel2);
 
         mainPanel.add(pnlHeading, java.awt.BorderLayout.NORTH);
 
         pnlDates.setBackground(new java.awt.Color(255, 255, 255));
-        pnlDates.setLayout(new java.awt.GridLayout(1, 0, 16, 0));
+        pnlDates.setLayout(new java.awt.GridLayout(2, 0, 16, -50));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(48, 0, 48, 0));
         jPanel4.setLayout(new java.awt.BorderLayout());
 
-        checkInDate.setBackground(new java.awt.Color(246, 246, 246));
         checkInDate.setForeground(new java.awt.Color(94, 94, 94));
         checkInDate.setFont(readexPro);
         checkInDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -115,7 +128,6 @@ public class DateSelection extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createEmptyBorder(48, 0, 48, 0));
         jPanel5.setLayout(new java.awt.BorderLayout());
 
-        checkOutDate.setBackground(new java.awt.Color(246, 246, 246));
         checkOutDate.setForeground(new java.awt.Color(94, 94, 94));
         checkOutDate.setFont(readexPro);
         checkOutDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -142,7 +154,6 @@ public class DateSelection extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 160));
         jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
-        jPanel3.setBackground(new java.awt.Color(246, 246, 246));
         jPanel3.setLayout(new java.awt.BorderLayout());
 
         lblDateDiff.setFont(readexPro);
@@ -150,6 +161,9 @@ public class DateSelection extends javax.swing.JFrame {
         lblDateDiff.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDateDiff.setText("0 days");
         lblDateDiff.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 32, 16, 32));
+        lblDateDiff.setMaximumSize(new java.awt.Dimension(130, 48));
+        lblDateDiff.setMinimumSize(new java.awt.Dimension(130, 48));
+        lblDateDiff.setPreferredSize(new java.awt.Dimension(130, 48));
         jPanel3.add(lblDateDiff, java.awt.BorderLayout.CENTER);
 
         jPanel1.add(jPanel3);
@@ -261,7 +275,7 @@ public class DateSelection extends javax.swing.JFrame {
         ReadexProLoader loader = new ReadexProLoader();
         
         readexPro = loader.readexPro(12);
-        readexProSemiBold = loader.readexProSemiBold(18);
+        readexProSemiBold = loader.readexProSemiBold(24);
     }
     
     /**
@@ -312,6 +326,7 @@ public class DateSelection extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser checkInDate;
     private com.toedter.calendar.JDateChooser checkOutDate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
@@ -319,6 +334,7 @@ public class DateSelection extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblDateDiff;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel pnlBtns;

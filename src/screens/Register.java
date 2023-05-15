@@ -33,6 +33,8 @@ public class Register extends javax.swing.JFrame {
         setFonts();
         initComponents();
         focus();
+         lblError.setVisible(false);
+        lblError.setText("");
     }
     
     private void focus() {
@@ -47,7 +49,7 @@ public class Register extends javax.swing.JFrame {
         ReadexProLoader loader = new ReadexProLoader();
         
         readexPro = loader.readexPro(12);
-        readexProSemiBold = loader.readexProSemiBold(32);
+        readexProSemiBold = loader.readexProSemiBold(24);
     }
 
     /**
@@ -65,10 +67,15 @@ public class Register extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         pnlForms = new javax.swing.JPanel();
+        lblError = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
+        separator3 = new javax.swing.JPanel();
         txtAddress = new javax.swing.JTextField();
+        separator2 = new javax.swing.JPanel();
         txtConNo = new javax.swing.JTextField();
+        separator1 = new javax.swing.JPanel();
         txtEmail = new javax.swing.JTextField();
+        separator = new javax.swing.JPanel();
         txtPassword = new javax.swing.JPasswordField();
         pnlBtns = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
@@ -101,13 +108,26 @@ public class Register extends javax.swing.JFrame {
 
         pnlForms.setBackground(new java.awt.Color(255, 255, 255));
         pnlForms.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 192, 0, 192));
-        pnlForms.setLayout(new java.awt.GridLayout(5, 0, 0, 16));
+        pnlForms.setLayout(new javax.swing.BoxLayout(pnlForms, javax.swing.BoxLayout.PAGE_AXIS));
+
+        lblError.setFont(readexPro);
+        lblError.setForeground(new java.awt.Color(254, 74, 73));
+        lblError.setText("User already exists! Please use a different email.");
+        lblError.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblError.setAlignmentX(0.5F);
+        lblError.setMaximumSize(new java.awt.Dimension(295, 25));
+        lblError.setMinimumSize(new java.awt.Dimension(295, 25));
+        lblError.setPreferredSize(new java.awt.Dimension(295, 25));
+        pnlForms.add(lblError);
 
         txtName.setBackground(new java.awt.Color(246, 246, 246));
         txtName.setFont(readexPro);
         txtName.setForeground(new java.awt.Color(171, 171, 171));
         txtName.setText("Name");
         txtName.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(201, 201, 201), 1, true), javax.swing.BorderFactory.createEmptyBorder(16, 16, 16, 16)));
+        txtName.setMaximumSize(new java.awt.Dimension(300, 50));
+        txtName.setMinimumSize(new java.awt.Dimension(300, 50));
+        txtName.setPreferredSize(new java.awt.Dimension(300, 50));
         txtName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtNameFocusGained(evt);
@@ -118,11 +138,20 @@ public class Register extends javax.swing.JFrame {
         });
         pnlForms.add(txtName);
 
+        separator3.setBackground(new java.awt.Color(255, 255, 255));
+        separator3.setMaximumSize(new java.awt.Dimension(300, 15));
+        separator3.setMinimumSize(new java.awt.Dimension(300, 15));
+        separator3.setPreferredSize(new java.awt.Dimension(300, 15));
+        pnlForms.add(separator3);
+
         txtAddress.setBackground(new java.awt.Color(246, 246, 246));
         txtAddress.setFont(readexPro);
         txtAddress.setForeground(new java.awt.Color(171, 171, 171));
         txtAddress.setText("Address");
         txtAddress.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(201, 201, 201), 1, true), javax.swing.BorderFactory.createEmptyBorder(16, 16, 16, 16)));
+        txtAddress.setMaximumSize(new java.awt.Dimension(300, 50));
+        txtAddress.setMinimumSize(new java.awt.Dimension(300, 50));
+        txtAddress.setPreferredSize(new java.awt.Dimension(300, 50));
         txtAddress.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtAddressFocusGained(evt);
@@ -133,11 +162,20 @@ public class Register extends javax.swing.JFrame {
         });
         pnlForms.add(txtAddress);
 
+        separator2.setBackground(new java.awt.Color(255, 255, 255));
+        separator2.setMaximumSize(new java.awt.Dimension(300, 15));
+        separator2.setMinimumSize(new java.awt.Dimension(300, 15));
+        separator2.setPreferredSize(new java.awt.Dimension(300, 15));
+        pnlForms.add(separator2);
+
         txtConNo.setBackground(new java.awt.Color(246, 246, 246));
         txtConNo.setFont(readexPro);
         txtConNo.setForeground(new java.awt.Color(171, 171, 171));
         txtConNo.setText("Contact number");
         txtConNo.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(201, 201, 201), 1, true), javax.swing.BorderFactory.createEmptyBorder(16, 16, 16, 16)));
+        txtConNo.setMaximumSize(new java.awt.Dimension(300, 50));
+        txtConNo.setMinimumSize(new java.awt.Dimension(300, 50));
+        txtConNo.setPreferredSize(new java.awt.Dimension(300, 50));
         txtConNo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtConNoFocusGained(evt);
@@ -148,11 +186,20 @@ public class Register extends javax.swing.JFrame {
         });
         pnlForms.add(txtConNo);
 
+        separator1.setBackground(new java.awt.Color(255, 255, 255));
+        separator1.setMaximumSize(new java.awt.Dimension(300, 15));
+        separator1.setMinimumSize(new java.awt.Dimension(300, 15));
+        separator1.setPreferredSize(new java.awt.Dimension(300, 15));
+        pnlForms.add(separator1);
+
         txtEmail.setBackground(new java.awt.Color(246, 246, 246));
         txtEmail.setFont(readexPro);
         txtEmail.setForeground(new java.awt.Color(171, 171, 171));
         txtEmail.setText("Email");
         txtEmail.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(201, 201, 201), 1, true), javax.swing.BorderFactory.createEmptyBorder(16, 16, 16, 16)));
+        txtEmail.setMaximumSize(new java.awt.Dimension(300, 50));
+        txtEmail.setMinimumSize(new java.awt.Dimension(300, 50));
+        txtEmail.setPreferredSize(new java.awt.Dimension(300, 50));
         txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtEmailFocusGained(evt);
@@ -163,12 +210,21 @@ public class Register extends javax.swing.JFrame {
         });
         pnlForms.add(txtEmail);
 
+        separator.setBackground(new java.awt.Color(255, 255, 255));
+        separator.setMaximumSize(new java.awt.Dimension(300, 15));
+        separator.setMinimumSize(new java.awt.Dimension(300, 15));
+        separator.setPreferredSize(new java.awt.Dimension(300, 15));
+        pnlForms.add(separator);
+
         txtPassword.setBackground(new java.awt.Color(246, 246, 246));
         txtPassword.setFont(readexPro);
         txtPassword.setForeground(new java.awt.Color(171, 171, 171));
         txtPassword.setText("Password");
         txtPassword.setBorder(txtName.getBorder());
         txtPassword.setEchoChar('\u0000');
+        txtPassword.setMaximumSize(new java.awt.Dimension(300, 50));
+        txtPassword.setMinimumSize(new java.awt.Dimension(300, 50));
+        txtPassword.setPreferredSize(new java.awt.Dimension(300, 50));
         txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtPasswordFocusGained(evt);
@@ -192,6 +248,7 @@ public class Register extends javax.swing.JFrame {
         btnBack.setToolTipText("");
         btnBack.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 16, 16, 16));
         btnBack.setBorderPainted(false);
+        btnBack.setFocusPainted(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -205,6 +262,7 @@ public class Register extends javax.swing.JFrame {
         btnRegister.setText("Register");
         btnRegister.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 16, 16, 16));
         btnRegister.setBorderPainted(false);
+        btnRegister.setFocusPainted(false);
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterActionPerformed(evt);
@@ -316,7 +374,8 @@ public class Register extends javax.swing.JFrame {
             ResultSet rs = stmt.executeQuery();
             
             if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "User already exists! Please use a different email.");
+                  lblError.setVisible(true);
+                lblError.setText("User already exists! Please use a different email.");
             } else {
                 User newUser = new User(name, address, contact, email, password);
                 
@@ -377,10 +436,15 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblError;
     private javax.swing.JPanel pnlBtns;
     private javax.swing.JPanel pnlForms;
     private javax.swing.JPanel pnlHeadings;
     private javax.swing.JPanel pnlMain;
+    private javax.swing.JPanel separator;
+    private javax.swing.JPanel separator1;
+    private javax.swing.JPanel separator2;
+    private javax.swing.JPanel separator3;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtConNo;
     private javax.swing.JTextField txtEmail;

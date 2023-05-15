@@ -33,8 +33,7 @@ public class Home extends javax.swing.JFrame {
 
         mainPanel = new javax.swing.JPanel();
         pnlHeadings = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -56,17 +55,11 @@ public class Home extends javax.swing.JFrame {
         pnlHeadings.setBackground(new java.awt.Color(255, 255, 255));
         pnlHeadings.setLayout(new java.awt.GridLayout(3, 1));
 
-        jLabel1.setFont(readexProSemiBold);
-        jLabel1.setForeground(new java.awt.Color(58, 50, 44));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Welcome to");
-        pnlHeadings.add(jLabel1);
-
-        jLabel2.setFont(jLabel1.getFont());
-        jLabel2.setForeground(new java.awt.Color(91, 55, 0));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Flora Macatan");
-        pnlHeadings.add(jLabel2);
+        logo.setFont(readexProSemiBold);
+        logo.setForeground(new java.awt.Color(58, 50, 44));
+        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("../assets/Logo_Full.png")));
+        pnlHeadings.add(logo);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 0, 0, 0));
@@ -227,12 +220,11 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton btnBook;
     private javax.swing.JButton btnReservationLog;
     private javax.swing.JButton btnSignOut;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel logo;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel pnlBtns;
     private javax.swing.JPanel pnlCopyright;

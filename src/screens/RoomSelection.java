@@ -114,7 +114,7 @@ public class RoomSelection extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Readex Pro SemiBold", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Readex Pro SemiBold", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(58, 50, 44));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Rooms");
