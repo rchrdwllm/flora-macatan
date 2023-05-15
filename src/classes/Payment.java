@@ -45,7 +45,7 @@ public class Payment {
             pstmt.setString(1, type);
             pstmt.setInt(2, total);
             pstmt.setString(3, email);
-            pstmt.setString(4, email);
+            pstmt.setString(4, password);
             pstmt.setString(5, cardNumber);
             pstmt.setString(6, phoneNumber);
             pstmt.setString(7, Reservation.reservationId);
