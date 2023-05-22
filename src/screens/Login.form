@@ -122,7 +122,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="49" green="4a" red="fe" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Invalid credentials!"/>
                 <Property name="verticalAlignment" type="int" value="1"/>
                 <Property name="alignmentX" type="float" value="0.5"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">

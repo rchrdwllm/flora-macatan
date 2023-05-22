@@ -122,7 +122,6 @@ public class Login extends javax.swing.JFrame {
 
         lblError.setFont(readexPro);
         lblError.setForeground(new java.awt.Color(254, 74, 73));
-        lblError.setText("Invalid credentials!");
         lblError.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         lblError.setAlignmentX(0.5F);
         lblError.setMaximumSize(new java.awt.Dimension(295, 25));
