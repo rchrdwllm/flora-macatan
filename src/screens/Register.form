@@ -68,6 +68,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="2c" green="32" red="3a" type="rgb"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;head&gt;&lt;style&gt;body { font-family: &quot;Readex Pro&quot;; font-weight: 700; }&lt;/style&gt;&lt;/head&gt;Guest &lt;font color=&quot;#5B3700&quot;&gt;information&lt;/font&gt;&lt;/html&gt;"/>
               </Properties>
             </Component>
@@ -79,6 +80,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ab" green="ab" red="ab" type="rgb"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Provide your booking information"/>
               </Properties>
             </Component>
@@ -120,7 +122,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="49" green="4a" red="fe" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="User already exists! Please use a different email."/>
                 <Property name="verticalAlignment" type="int" value="1"/>
                 <Property name="alignmentX" type="float" value="0.5"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">

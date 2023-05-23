@@ -93,11 +93,13 @@ public class Register extends javax.swing.JFrame {
 
         jLabel1.setFont(readexProSemiBold);
         jLabel1.setForeground(new java.awt.Color(58, 50, 44));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html><head><style>body { font-family: \"Readex Pro\"; font-weight: 700; }</style></head>Guest <font color=\"#5B3700\">information</font></html>");
         pnlHeadings.add(jLabel1);
 
         jLabel2.setFont(readexPro);
         jLabel2.setForeground(new java.awt.Color(171, 171, 171));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Provide your booking information");
         pnlHeadings.add(jLabel2);
 
@@ -112,7 +114,6 @@ public class Register extends javax.swing.JFrame {
 
         lblError.setFont(readexPro);
         lblError.setForeground(new java.awt.Color(254, 74, 73));
-        lblError.setText("User already exists! Please use a different email.");
         lblError.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         lblError.setAlignmentX(0.5F);
         lblError.setMaximumSize(new java.awt.Dimension(295, 25));
